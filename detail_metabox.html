@@ -1,0 +1,2157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<!-- Basic -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<title>ARTi-X, The Specialized NFT Market </title>
+
+	<meta name="keywords" content="NFT, ARTi, Art, Blockchain" />
+	<meta name="description" content="ARTi Project">
+	<meta name="author" content="Yconslab">
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="http://artixc.com/assets/images/favicon.ico" type="image/x-icon" />
+	<link rel="apple-touch-icon" href="http://artixc.com/assets/images/apple-touch-icon.png">
+
+	<!-- Mobile Metas -->
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+
+	<!-- Web Fonts  -->
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500,700,900&display=swap"
+		rel="stylesheet">
+	<link id="googleFonts"
+		href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800%7CShadows+Into+Light%7CPlayfair+Display:400&display=swap"
+		rel="stylesheet" type="text/css">
+
+	<!-- Vendor CSS -->
+	<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="vendor/fontawesome-free/css/all.min.css">
+	<link rel="stylesheet" href="vendor/animate/animate.compat.css">
+	<link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.min.css">
+	<link rel="stylesheet" href="vendor/owl.carousel/assets/owl.carousel.min.css">
+	<link rel="stylesheet" href="vendor/owl.carousel/assets/owl.theme.default.min.css">
+	<link rel="stylesheet" href="vendor/magnific-popup/magnific-popup.min.css">
+	<link rel="stylesheet" href="vendor/bootstrap-star-rating/css/star-rating.min.css">
+	<link rel="stylesheet" href="vendor/bootstrap-star-rating/themes/krajee-fas/theme.min.css">
+	<link rel="stylesheet" href="vendor/sweetalert2/sweetalert2.min.css">
+
+	<!-- Theme CSS -->
+	<link rel="stylesheet" href="css/theme.css">
+	<link rel="stylesheet" href="css/theme-elements.css">
+	<link rel="stylesheet" href="css/theme-blog.css">
+	<link rel="stylesheet" href="css/theme-shop.css">
+
+	<!-- Skin CSS -->
+	<link id="skinCSS" rel="stylesheet" href="css/skins/default.css">
+
+	<!-- Theme Custom CSS -->
+	<link rel="stylesheet" href="css/custom.css">
+
+	<!-- Head Libs -->
+	<script src="vendor/modernizr/modernizr.min.js"></script>
+
+	<script src="vendor/jquery/jquery.min.js"></script>
+
+
+
+</head>
+
+<body data-plugin-page-transition>
+	<div class="body">
+
+		<!--Header Menu Section-->
+		<section>
+
+			<!--Ads panel-->
+			<div class="notice-top-bar bg-color-dark-scale-1" data-sticky-start-at="180">
+				<button class="hamburguer-btn hamburguer-btn-light notice-top-bar-close m-0 active"
+					data-set-active="false">
+					<span class="close">
+						<span></span>
+						<span></span>
+					</span>
+				</button>
+				<div class="container ">
+					<div class="text-center m-p-0 ">
+
+						<h2 class="word-rotator letters scale m-p-0 text-light text-3-5">
+							<span class="font-weight-medium">ArtiX is </span>
+							<span class="word-rotator-words font-weight-bold">
+								<b class="is-visible font-weight-extra-bold text-warning">incredibly</b>
+								<b>especially</b>
+								<b>unique</b>
+							</span>
+							<span class="font-weight-medium"> NFT MarketPlace.</span>
+						</h2>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="modal fade" id="login-popup" tabindex="-1" role="dialog" aria-labelledby="formModalLabel"
+				aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+						<div class="modal-header bg-color-grey-scale-4">
+							<h4 class="modal-title font-weight-extra-bold" id="formModalLabel"><strong>Sign in</strong>
+								<small class="tc-default">with Your Account</small></h4>
+							<button type="button" class="btn-close" data-bs-dismiss="modal"
+								aria-hidden="true">&times;</button>
+						</div>
+						<div class="modal-body">
+							<form id="signform" method="post" class="margin-bottom-0">
+								<input type="hidden" name="mode" value="exe">
+								<input type="hidden" id="otpnum" name="otp" value="0">
+
+								<div class="field-item">
+									<div class="field-wrap">
+										<input type="text" name="id" class="form-control" placeholder="Your ID">
+									</div>
+								</div>
+								<div class="field-item">
+									<div class="field-wrap">
+										<input type="password" name="pass" class="form-control mt-1"
+											placeholder="Password">
+									</div>
+								</div>
+								<div class="field-item d-flex justify-content-between align-items-center">
+									<div class="field-item pb-0 mt-1">
+										<input class="input-checkbox" id="remember-me-100" type="checkbox"
+											id="sign_agree" name="agree" value="1">
+										<label for="remember-me-100">I am Not Robot.</label>
+									</div>
+									<!--div class="forget-link fz-6">
+							<a href="#" data-toggle="modal" data-dismiss="modal" data-target="#reset-popup">Forgot password?</a>
+						</div-->
+								</div>
+								<button type="button" id="wLogin" class="btn btn-primary btn-block btn-md mt-2"
+									style="width:100%">Sign In</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<script>
+				$(document).ready(function () {
+					$('#wLogin').on('click', function () {
+						if ($('#sign_agree').prop('checked') != true) {
+							$.ajax({
+								type: 'post',
+								url: 'http://artixc.com/proc/ajax/arti_login.html',
+								data: $("#signform").serialize(),
+								dataType: "json",
+								success: function (data) {
+									if (data.code == "0") {
+										Swal.fire({ text: data.msg, icon: 'success', confirmButtonText: 'OK' });
+										location.reload();
+									} else if (data.code == "100") {
+										$('#m_secret').html(data.secret);
+										$('#m_qrcode').attr('src', data.qrcode);
+										$('#modalBtn').trigger('click');
+									} else {
+										Swal.fire({ text: data.msg, icon: 'error', confirmButtonText: 'OK' });
+									}
+								}
+							});
+						} else {
+							Swal.fire({ text: 'Check in not robot!!', icon: 'error', confirmButtonText: 'OK' });
+						}
+					});
+
+
+					$('#cSign').on('click', function () {
+						$.ajax({
+							type: 'post',
+							url: 'http://artixc.com/proc/ajax/fpass.html',
+							data: $("#pform").serialize(),
+							dataType: "json",
+							success: function (data) {
+								if (data.code == "0") {
+									Swal.fire({ text: data.msg, icon: 'success', confirmButtonText: 'OK' });
+									location.href = './';
+								} else {
+									Swal.fire({ text: data.msg, icon: 'error', confirmButtonText: 'OK' });
+								}
+							}
+						});
+					});
+
+					$("#signform").keydown(function (key) {
+						if (key.keyCode == 13) {
+							$('#wLogin').trigger('click');
+						}
+					});
+
+
+				});
+			</script>
+
+			<!--header Section-->
+			<header id="header"
+				data-plugin-options="{'stickyEnabled': true, 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': false, 'stickyStartAt': 135, 'stickySetTop': '-100px', 'stickyChangeLogo': true}">
+				<div class="header-body header-body-bottom-border-fixed box-shadow-none border-top-0">
+
+
+					<!-- Logo-search-Menu -->
+					<div class="header-container container">
+						<div class="header-row justify-content-between py-2">
+
+							<div class="header-column col-auto px-0">
+								<div class="header-row">
+
+									<!--logo -->
+									<div class="header-logo z-index-2 col-lg-7 px-0">
+										<a href="http://artixc.com/">
+											<!--img alt="ArtiX" width="100" height="48" data-sticky-width="82"
+                                                data-sticky-height="40" data-sticky-top="84" src="http://artixc.com/assets/images/logo.png"-->
+										
+											
+												<span><img src="metabox_artix_logo.png" width="250"
+													data-sticky-width="100" alt="ArtiX"></span>
+
+												
+										</a>
+									</div>
+
+
+									<!-- Search -->
+									<div
+										class="header-nav-features header-nav-features-no-border col-lg-3 col-xl-9 px-0 ms-0 ">
+										<div class="header-nav-feature ps-lg-5 pe-lg-4">
+											<form role="search" action="page-search-results.html" method="get">
+												<div class="search-with-select">
+													<a href="#" class="mobile-search-toggle-btn me-2"
+														data-porto-toggle-class="open">
+														<i
+															class="icons icon-magnifier text-color-dark text-color-hover-primary"></i>
+													</a>
+													<div class="search-form-wrapper input-group">
+														<input class="form-control text-1 border-1 py-0"
+															id="headerSearch" name="q" type="search" value=""
+															placeholder="Search...">
+														<div class="search-form-select-wrapper border-1">
+															<button class="btn" type="submit">
+																<i
+																	class="icons icon-magnifier header-nav-top-icon text-color-dark"></i>
+															</button>
+														</div>
+													</div>
+												</div>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+							<!--right-menu-->
+							<div class="header-column justify-content-end col-auto px-0 text-3-5">
+								<div class="header-row">
+									<nav class="header-nav-top">
+										<ul class="nav nav-pills font-weight-semibold text-2">
+											<li class="nav-item dropdown nav-item-left-border d-lg-none">
+												<a class="nav-link text-color-default text-color-hover-primary" href="#"
+													role="button" id="dropdownMobileMore" data-bs-toggle="dropdown"
+													aria-haspopup="true" aria-expanded="false">
+													MORE
+													<i class="fas fa-angle-down"></i>
+												</a>
+												<div class="dropdown-menu" aria-labelledby="dropdownMobileMore">
+													<a class="dropdown-item" href="http://artixc.com/create_nft">Create NFT</a>
+													<a class="dropdown-item" href="http://artixc.com/event">Event</a>
+												</div>
+											</li>
+											<li class="nav-item d-none d-lg-inline-block m-0">
+												<a href="http://artixc.com/create_nft"
+													class="text-decoration-none text-color-default text-color-hover-primary"><button
+														class="btn btn-xs btn-light border-0 m-0"> CREATE
+														NFT </button></a>
+											</li>
+											<li class="nav-item d-none d-lg-inline-block m-0">
+												<a href="http://artixc.com/event" class="text-decoration-none text-dark"><button
+														class="btn btn-xs btn-light border-0 m-0"> EVENT</button></a>
+											</li>
+											<li class="nav-item d-none d-lg-inline-block m-0">
+												<a href="https://www.dcoin.co/kr/currencyTrading/arti_USDT"
+													target="_blank"
+													class="text-decoration-none text-color-default text-color-hover-primary"><button
+														class="btn btn-xs btn-outline-primary m-0">BUY ARTi</button></a>
+											</li>
+
+										</ul>
+
+									</nav>
+
+
+									<!--user-profile-icon-->
+
+									<ul class="header-extra-info">
+
+										<li class="nav-item dropdown nav-item-right-border">
+											<a class="nav-link text-color-default text-color-hover-primary" href="#"
+												role="button" id="dropdownLanguage" data-bs-toggle="dropdown"
+												aria-haspopup="true" aria-expanded="false">
+
+												<i class="fas fa-user-circle text-7"></i>
+												<i class="fas fa-angle-down"></i>
+											</a>
+											<div class="dropdown-menu dropdown-menu-arrow-centered min-width-0  font-weight-semibold text-1"
+												aria-labelledby="dropdownLanguage">
+												<a class="dropdown-item" href="http://artixc.com/join">Join</a>
+												<a class="dropdown-item" href="#" data-bs-toggle="modal"
+													data-bs-target="#login-popup"><span>Login</span></a>
+												<a class="dropdown-item" href="http://artixc.com/user_profile">My Account</a>
+												<a class="dropdown-item" href="http://artixc.com/arti_charge">ARTi Charge</a>
+												<a class="dropdown-item" href="http://artixc.com/collection">NFT Collection</a>
+												<a class="dropdown-item" href="#">My Office</a>
+
+											</div>
+										</li>
+
+									</ul>
+
+
+								</div>
+							</div>
+
+
+						</div>
+					</div>
+
+
+
+					<!--NFT menu -->
+					<div class="header-nav-bar header-nav-bar-top-border bg-linear-grey">
+						<div class="header-container container">
+							<div class="header-row">
+								<div class="header-column">
+									<div class="header-row justify-content-end">
+										<div class="header-nav header-nav-line header-nav-top-line header-nav-top-line-with-border justify-content-start"
+											data-sticky-header-style="{'minResolution': 991}"
+											data-sticky-header-style-active="{'margin-left': '105px'}"
+											data-sticky-header-style-deactive="{'margin-left': '0'}">
+											<div
+												class="header-nav-main header-nav-main-square header-nav-main-dropdown-no-borders header-nav-main-effect-3 header-nav-main-sub-effect-1 w-100">
+												<nav class="collapse w-100">
+													<ul class="nav nav-pills w-100" id="mainNav">
+														<li class="dropdown">
+															<a class="dropdown-item dropdown-toggle" href="http://artixc.com/main">
+																ALL
+															</a>
+
+														</li>
+														<li class="dropdown">
+															<a href="http://artixc.com/1_art" class="dropdown-item">
+																ART
+															</a>
+														</li>
+														<li class="dropdown">
+															<a href="http://artixc.com/2_illust" class="dropdown-item">
+																illust
+															</a>
+														</li>
+
+														<li class="dropdown">
+															<a href="http://artixc.com/3_enter" class="dropdown-item">
+																Entertainment
+															</a>
+														</li>
+
+
+														<li class="dropdown">
+															<a href="http://artixc.com/4_sports" class="dropdown-item">
+																sports
+															</a>
+														</li>
+
+														<li class="dropdown">
+															<a href="http://artixc.com/5_game" class="dropdown-item">
+																Game
+															</a>
+														</li>
+
+														<li class="dropdown">
+															<a href="http://artixc.com/6_collect" class="dropdown-item">
+																Luxury Brand
+															</a>
+														</li>
+
+														<li class="dropdown">
+															<a href="http://artixc.com/7_freetype" class="dropdown-item">
+																All Type
+															</a>
+														</li>
+
+
+														<li class="dropdown ">
+															<a href="http://artixc.com/arti_charge" target="_blank"
+																class="dropdown-item text-dark">
+																<button
+																	class="btn btn-xs btn-outline-primary m-0"><b>ARTi충전</b></button>
+															</a>
+														</li>
+
+
+														<li class="dropdown ">
+															<a href="http://artixc.com/detail_hooranky" class="dropdown-item text-dark">
+																<button class="btn btn-xs btn-danger m-0"><b>후랭키
+																		특별전!</b></button>
+															</a>
+														</li>
+
+
+
+													</ul>
+												</nav>
+											</div>
+											<button class="btn header-btn-collapse-nav" data-bs-toggle="collapse"
+												data-bs-target=".header-nav-main nav">
+												<i class="fas fa-bars"></i>
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</header>
+
+		</section>
+		<section
+			class="m-0 section section-text-light section-background section-center section-overlay-opacity section-overlay-opacity-scale-7"
+			style="background-image: url(http://artixc.com/assets/images/Hoo2007171312_garo.png); height:250px;">
+			<div class="container">
+				
+				<img src="metabox_logo_w.png" width="180"
+				data-sticky-width="100" alt="ArtiX" class="mb-4">
+				<p class="mb-2 text-7 font-weight-extra-bold">메타박스 후랭키 특별전 NFT분할소유 </p>
+				<h4>후랭키 디지털미디어 NFT 작품 대전</h4>
+			</div>
+		</section>
+
+
+		<!--the Art title-->
+		<section class="section section-default section-with-divider m-0 mb-0">
+			<div class="divider divider-solid divider-style-4">
+				<i class="fas fa-chevron-down"></i>
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<h4 class="mb-1">세계적 디지털 미디어작가 | 후랭키(Hooranky) 작품대전 | </h4>
+						<p class="mb-0 text-2 line-height-1">The spiritual world of culture and art unfolded by Hooranky
+							expresses the world of work that encompasses the universe beyond people, countries, nations,
+							and the global environment, starting from personal concerns, through digital media works and
+							NFTs.</p>
+					</div>
+				</div>
+
+				<h2 class="text-12 font-weight-extra-bold mt-2 my-3-5"><strong>메타박스_후랭키 NFT 특별전</strong> </h2>
+				<div style="width:400px; height:6px; background-color:rgb(219, 20, 153);" class="mb-1"></div>
+
+				<h1 class="word-rotator loading-bar mb-0">
+					<span class="font-weight-bold text-1">작품주제 : </span>
+					<div class="word-rotator-words">
+						<b class="is-visible font-weight-bold text-primary text-0">Hooranky Special NFT Edition #1 </b>
+						<b class="font-weight-bold text-danger text-5 alternative-font">Summer_green Swamp</b>
+						<b class="font-weight-light text-3 text-tertiary">"여름_ 그 초록의 늪"</b>
+					</div>
+
+				</h1>
+
+			</div>
+		</section>
+
+
+
+		<!--ㅡmain body _shop in detail -->
+		<div role="main" class="main mt-0">
+
+			<div class="container">
+
+				<p class="text-dark text-color-hover-primary"><i class="fas fa-exclamation-circle me-2"></i>
+					You can select the part you want to purchase from the entire work and purchase it. </p>
+
+
+
+				<div class="row">
+					<!-- 좌측 -->
+					<div class="col-md-6">
+						<h4><i class="far fa-image me-2"></i>오리지널 작품이미지(Hoo150803_Summer)</h4>
+
+						<div class="mb-3 mb-md-0 lightbox  border-1 "
+							data-plugin-options="{'delegate': 'a.lightbox-portfolio', 'type': 'image', 'gallery': {'enabled': true}}">
+							<div class="appear-animation" data-appear-animation="expandIn"
+								data-appear-animation-delay="100">
+								<span class="thumb-info thumb-info-lighten thumb-info-centered-icons border-radius-0">
+									<span class="thumb-info-wrapper border-radius-0">
+										<img id="original" src="http://artixc.com/assets/images/croe/hoo150803.jpg"
+											class="img-fluid border-radius-0" alt="">
+										<span class="thumb-info-action">
+											<a href="http://artixc.com/assets/images/croe/hoo150803.jpg"
+												class="lightbox-portfolio">
+												<span class="thumb-info-action-icon thumb-info-action-icon-light"><i
+														class="fas fa-search text-dark"></i></span>
+											</a>
+										</span>
+									</span>
+								</span>
+							</div>
+						</div>
+
+
+					</div>
+
+					<!-- 우측 -->
+					<div class="col-md-6 ">
+						<h4 class="ms-3"><i class="far fa-images me-2"></i>NFT작품 분할소유권 대분류</h4>
+						<div id="img-hotspot" class="mb-3 ms-0">
+							<div id="category" class="image-hotspots"
+								style="background: url('http://artixc.com/assets/images/croe/hoo150803.jpg'); background-size: cover; background-position: center;">
+								<!---img src="http://artixc.com/assets/images/croe/hoo150803.jpg" width="100%" class="img-fluid" /-->
+								<i class="icon-puzzle icons"></i>
+
+								<div id="divimg1" style="left:00%;top:0%" class="part-area divimg" no="1"> <strong
+										class="part-txt">1</strong></div>
+								<div id="divimg2" style="left:10%;top:0%" class="part-area divimg" no="2"> <strong
+										class="part-txt">2</strong></div>
+								<div id="divimg3" style="left:20%;top:0%" class="part-area divimg" no="3"> <strong
+										class="part-txt">3</strong></div>
+								<div id="divimg4" style="left:30%;top:0%" class="part-area divimg" no="4"> <strong
+										class="part-txt">4</strong></div>
+								<div id="divimg5" style="left:40%;top:0%" class="part-area divimg" no="5"> <strong
+										class="part-txt">5</strong></div>
+								<div id="divimg6" style="left:50%;top:0%" class="part-area divimg" no="6"> <strong
+										class="part-txt">6</strong></div>
+								<div id="divimg7" style="left:60%;top:0%" class="part-area divimg" no="7"> <strong
+										class="part-txt">7</strong></div>
+								<div id="divimg8" style="left:70%;top:0%" class="part-area divimg" no="8"> <strong
+										class="part-txt">8</strong></div>
+								<div id="divimg9" style="left:80%;top:0%" class="part-area divimg" no="9"> <strong
+										class="part-txt">9</strong></div>
+								<div id="divimg10" style="left:90%;top:0%" class="part-area divimg" no="10"> <strong
+										class="part-txt">10</strong></div>
+
+								<div id="divimg11" style="left:00%;top:6.6667%;" class="part-area divimg" no="11">
+									<strong class="part-txt">11</strong></div>
+								<div id="divimg12" style="left:10%;top:6.6667%;" class="part-area divimg" no="12">
+									<strong class="part-txt">12</strong></div>
+								<div id="divimg13" style="left:20%;top:6.6667%;" class="part-area divimg" no="13">
+									<strong class="part-txt">13</strong></div>
+								<div id="divimg14" style="left:30%;top:6.6667%;" class="part-area divimg" no="14">
+									<strong class="part-txt">14</strong></div>
+								<div id="divimg15" style="left:40%;top:6.6667%;" class="part-area divimg" no="15">
+									<strong class="part-txt">15</strong></div>
+								<div id="divimg16" style="left:50%;top:6.6667%;" class="part-area divimg" no="16">
+									<strong class="part-txt">16</strong></div>
+								<div id="divimg17" style="left:60%;top:6.6667%;" class="part-area divimg" no="17">
+									<strong class="part-txt">17</strong></div>
+								<div id="divimg18" style="left:70%;top:6.6667%;" class="part-area divimg" no="18">
+									<strong class="part-txt">18</strong></div>
+								<div id="divimg19" style="left:80%;top:6.6667%;" class="part-area divimg" no="19">
+									<strong class="part-txt">19</strong></div>
+								<div id="divimg20" style="left:90%;top:6.6667%;" class="part-area divimg" no="20">
+									<strong class="part-txt">20</strong></div>
+
+								<div id="divimg21" style="left:00%;top:13.3333%;" class="part-area divimg" no="21">
+									<strong class="part-txt">21</strong></div>
+								<div id="divimg22" style="left:10%;top:13.3333%;" class="part-area divimg" no="22">
+									<strong class="part-txt">22</strong></div>
+								<div id="divimg23" style="left:20%;top:13.3333%;" class="part-area divimg" no="23">
+									<strong class="part-txt">23</strong></div>
+								<div id="divimg24" style="left:30%;top:13.3333%;" class="part-area divimg" no="24">
+									<strong class="part-txt">24</strong></div>
+								<div id="divimg25" style="left:40%;top:13.3333%;" class="part-area divimg" no="25">
+									<strong class="part-txt">25</strong></div>
+								<div id="divimg26" style="left:50%;top:13.3333%;" class="part-area divimg" no="26">
+									<strong class="part-txt">26</strong></div>
+								<div id="divimg27" style="left:60%;top:13.3333%;" class="part-area divimg" no="27">
+									<strong class="part-txt">27</strong></div>
+								<div id="divimg28" style="left:70%;top:13.3333%;" class="part-area divimg" no="28">
+									<strong class="part-txt">28</strong></div>
+								<div id="divimg29" style="left:80%;top:13.3333%;" class="part-area divimg" no="29">
+									<strong class="part-txt">29</strong></div>
+								<div id="divimg30" style="left:90%;top:13.3333%;" class="part-area divimg" no="30">
+									<strong class="part-txt">30</strong></div>
+
+								<div id="divimg31" style="left:00%;top:20%;" class="part-area divimg" no="31"> <strong
+										class="part-txt">31</strong></div>
+								<div id="divimg32" style="left:10%;top:20%;" class="part-area divimg" no="32"> <strong
+										class="part-txt">32</strong></div>
+								<div id="divimg33" style="left:20%;top:20%;" class="part-area divimg" no="33"> <strong
+										class="part-txt">33</strong></div>
+								<div id="divimg34" style="left:30%;top:20%;" class="part-area divimg" no="34"> <strong
+										class="part-txt">34</strong></div>
+								<div id="divimg35" style="left:40%;top:20%;" class="part-area divimg" no="35"> <strong
+										class="part-txt">35</strong></div>
+								<div id="divimg36" style="left:50%;top:20%;" class="part-area divimg" no="36"> <strong
+										class="part-txt">36</strong></div>
+								<div id="divimg37" style="left:60%;top:20%;" class="part-area divimg" no="37"> <strong
+										class="part-txt">37</strong></div>
+								<div id="divimg38" style="left:70%;top:20%;" class="part-area divimg" no="38"> <strong
+										class="part-txt">38</strong></div>
+								<div id="divimg39" style="left:80%;top:20%;" class="part-area divimg" no="39"> <strong
+										class="part-txt">39</strong></div>
+								<div id="divimg40" style="left:90%;top:20%;" class="part-area divimg" no="40"> <strong
+										class="part-txt">40</strong></div>
+
+								<div id="divimg41" style="left:00%;top:26.6667%;" class="part-area divimg" no="41">
+									<strong class="part-txt">41</strong></div>
+								<div id="divimg42" style="left:10%;top:26.6667%;" class="part-area divimg" no="42">
+									<strong class="part-txt">42</strong></div>
+								<div id="divimg43" style="left:20%;top:26.6667%;" class="part-area divimg" no="43">
+									<strong class="part-txt">43</strong></div>
+								<div id="divimg44" style="left:30%;top:26.6667%;" class="part-area divimg" no="44">
+									<strong class="part-txt">44</strong></div>
+								<div id="divimg45" style="left:40%;top:26.6667%;" class="part-area divimg" no="45">
+									<strong class="part-txt">45</strong></div>
+								<div id="divimg46" style="left:50%;top:26.6667%;" class="part-area divimg" no="46">
+									<strong class="part-txt">46</strong></div>
+								<div id="divimg47" style="left:60%;top:26.6667%;" class="part-area divimg" no="47">
+									<strong class="part-txt">47</strong></div>
+								<div id="divimg48" style="left:70%;top:26.6667%;" class="part-area divimg" no="48">
+									<strong class="part-txt">48</strong></div>
+								<div id="divimg49" style="left:80%;top:26.6667%;" class="part-area divimg" no="49">
+									<strong class="part-txt">49</strong></div>
+								<div id="divimg50" style="left:90%;top:26.6667%;" class="part-area divimg" no="50">
+									<strong class="part-txt">50</strong></div>
+
+								<div id="divimg51" style="left:00%;top:33.33333%;" class="part-area divimg" no="51">
+									<strong class="part-txt">51</strong></div>
+								<div id="divimg52" style="left:10%;top:33.33333%;" class="part-area divimg" no="52">
+									<strong class="part-txt">52</strong></div>
+								<div id="divimg53" style="left:20%;top:33.33333%;" class="part-area divimg" no="53">
+									<strong class="part-txt">53</strong></div>
+								<div id="divimg54" style="left:30%;top:33.33333%;" class="part-area divimg" no="54">
+									<strong class="part-txt">54</strong></div>
+								<div id="divimg55" style="left:40%;top:33.33333%;" class="part-area divimg" no="55">
+									<strong class="part-txt">55</strong></div>
+								<div id="divimg56" style="left:50%;top:33.33333%;" class="part-area divimg" no="56">
+									<strong class="part-txt">56</strong></div>
+								<div id="divimg57" style="left:60%;top:33.33333%;" class="part-area divimg" no="57">
+									<strong class="part-txt">57</strong></div>
+								<div id="divimg58" style="left:70%;top:33.33333%;" class="part-area divimg" no="58">
+									<strong class="part-txt">58</strong></div>
+								<div id="divimg59" style="left:80%;top:33.33333%;" class="part-area divimg" no="59">
+									<strong class="part-txt">59</strong></div>
+								<div id="divimg60" style="left:90%;top:33.33333%;" class="part-area divimg" no="60">
+									<strong class="part-txt">60</strong></div>
+
+
+								<div id="divimg61" style="left:00%;top:40.00%;" class="part-area divimg" no="61">
+									<strong class="part-txt">61</strong></div>
+								<div id="divimg62" style="left:10%;top:40.00%;" class="part-area divimg" no="62">
+									<strong class="part-txt">62</strong></div>
+								<div id="divimg63" style="left:20%;top:40.00%;" class="part-area divimg" no="63">
+									<strong class="part-txt">63</strong></div>
+								<div id="divimg64" style="left:30%;top:40.00%;" class="part-area divimg" no="64">
+									<strong class="part-txt">64</strong></div>
+								<div id="divimg65" style="left:40%;top:40.00%;" class="part-area divimg" no="65">
+									<strong class="part-txt">65</strong></div>
+								<div id="divimg66" style="left:50%;top:40.00%;" class="part-area divimg" no="66">
+									<strong class="part-txt">66</strong></div>
+								<div id="divimg67" style="left:60%;top:40.00%;" class="part-area divimg" no="67">
+									<strong class="part-txt">67</strong></div>
+								<div id="divimg68" style="left:70%;top:40.00%;" class="part-area divimg" no="68">
+									<strong class="part-txt">68</strong></div>
+								<div id="divimg69" style="left:80%;top:40.00%;" class="part-area divimg" no="69">
+									<strong class="part-txt">69</strong></div>
+								<div id="divimg70" style="left:90%;top:40.00%;" class="part-area divimg" no="70">
+									<strong class="part-txt">70</strong></div>
+
+
+								<div id="divimg71" style="left:00%;top:46.66667%;" class="part-area divimg" no="71">
+									<strong class="part-txt">71</strong></div>
+								<div id="divimg72" style="left:10%;top:46.66667%;" class="part-area divimg" no="72">
+									<strong class="part-txt">72</strong></div>
+								<div id="divimg73" style="left:20%;top:46.66667%;" class="part-area divimg" no="73">
+									<strong class="part-txt">73</strong></div>
+								<div id="divimg74" style="left:30%;top:46.66667%;" class="part-area divimg" no="74">
+									<strong class="part-txt">74</strong></div>
+								<div id="divimg75" style="left:40%;top:46.66667%;" class="part-area divimg" no="75">
+									<strong class="part-txt">75</strong></div>
+								<div id="divimg76" style="left:50%;top:46.66667%;" class="part-area divimg" no="76">
+									<strong class="part-txt">76</strong></div>
+								<div id="divimg77" style="left:60%;top:46.66667%;" class="part-area divimg" no="77">
+									<strong class="part-txt">77</strong></div>
+								<div id="divimg78" style="left:70%;top:46.66667%;" class="part-area divimg" no="78">
+									<strong class="part-txt">78</strong></div>
+								<div id="divimg79" style="left:80%;top:46.66667%;" class="part-area divimg" no="79">
+									<strong class="part-txt">79</strong></div>
+								<div id="divimg80" style="left:90%;top:46.66667%;" class="part-area divimg" no="80">
+									<strong class="part-txt">80</strong></div>
+
+
+								<div id="divimg81" style="left:00%;top:53.3333%;" class="part-area divimg" no="81">
+									<strong class="part-txt">81</strong></div>
+								<div id="divimg82" style="left:10%;top:53.3333%;" class="part-area divimg" no="82">
+									<strong class="part-txt">82</strong></div>
+								<div id="divimg83" style="left:20%;top:53.3333%;" class="part-area divimg" no="83">
+									<strong class="part-txt">83</strong></div>
+								<div id="divimg84" style="left:30%;top:53.3333%;" class="part-area divimg" no="84">
+									<strong class="part-txt">84</strong></div>
+								<div id="divimg85" style="left:40%;top:53.3333%;" class="part-area divimg" no="85">
+									<strong class="part-txt">85</strong></div>
+								<div id="divimg86" style="left:50%;top:53.3333%;" class="part-area divimg" no="86">
+									<strong class="part-txt">86</strong></div>
+								<div id="divimg87" style="left:60%;top:53.3333%;" class="part-area divimg" no="87">
+									<strong class="part-txt">87</strong></div>
+								<div id="divimg88" style="left:70%;top:53.3333%;" class="part-area divimg" no="88">
+									<strong class="part-txt">88</strong></div>
+								<div id="divimg89" style="left:80%;top:53.3333%;" class="part-area divimg" no="89">
+									<strong class="part-txt">89</strong></div>
+								<div id="divimg90" style="left:90%;top:53.3333%;" class="part-area divimg" no="90">
+									<strong class="part-txt">90</strong></div>
+
+
+								<div id="divimg91" style="left:00%;top:60%;" class="part-area divimg" no="91"> <strong
+										class="part-txt">91</strong></div>
+								<div id="divimg92" style="left:10%;top:60%;" class="part-area divimg" no="92"> <strong
+										class="part-txt">92</strong></div>
+								<div id="divimg93" style="left:20%;top:60%;" class="part-area divimg" no="93"> <strong
+										class="part-txt">93</strong></div>
+								<div id="divimg94" style="left:30%;top:60%;" class="part-area divimg" no="94"> <strong
+										class="part-txt">94</strong></div>
+								<div id="divimg95" style="left:40%;top:60%;" class="part-area divimg" no="95"> <strong
+										class="part-txt">95</strong></div>
+								<div id="divimg96" style="left:50%;top:60%;" class="part-area divimg" no="96"> <strong
+										class="part-txt">96</strong></div>
+								<div id="divimg97" style="left:60%;top:60%;" class="part-area divimg" no="97"> <strong
+										class="part-txt">97</strong></div>
+								<div id="divimg98" style="left:70%;top:60%;" class="part-area divimg" no="98"> <strong
+										class="part-txt">98</strong></div>
+								<div id="divimg99" style="left:80%;top:60%;" class="part-area divimg" no="99"> <strong
+										class="part-txt">99</strong></div>
+								<div id="divimg100" style="left:90%;top:60%;" class="part-area divimg" no="100"> <strong
+										class="part-txt">100</strong></div>
+
+								<div id="divimg101" style="left:00%;top:66.6667%" class="part-area divimg" no="101">
+									<strong class="part-txt">101</strong></div>
+								<div id="divimg102" style="left:10%;top:66.6667%" class="part-area divimg" no="102">
+									<strong class="part-txt">102</strong></div>
+								<div id="divimg103" style="left:20%;top:66.6667%" class="part-area divimg" no="103">
+									<strong class="part-txt">103</strong></div>
+								<div id="divimg104" style="left:30%;top:66.6667%" class="part-area divimg" no="104">
+									<strong class="part-txt">104</strong></div>
+								<div id="divimg105" style="left:40%;top:66.6667%" class="part-area divimg" no="105">
+									<strong class="part-txt">105</strong></div>
+								<div id="divimg106" style="left:50%;top:66.6667%" class="part-area divimg" no="106">
+									<strong class="part-txt">106</strong></div>
+								<div id="divimg107" style="left:60%;top:66.6667%" class="part-area divimg" no="107">
+									<strong class="part-txt">107</strong></div>
+								<div id="divimg108" style="left:70%;top:66.6667%" class="part-area divimg" no="108">
+									<strong class="part-txt">108</strong></div>
+								<div id="divimg109" style="left:80%;top:66.6667%" class="part-area divimg" no="109">
+									<strong class="part-txt">109</strong></div>
+								<div id="divimg110" style="left:90%;top:66.6667%" class="part-area divimg" no="110">
+									<strong class="part-txt">110</strong></div>
+
+								<div id="divimg111" style="left:00%;top:73.3333%;" class="part-area divimg" no="111">
+									<strong class="part-txt">111</strong></div>
+								<div id="divimg112" style="left:10%;top:73.3333%;" class="part-area divimg" no="112">
+									<strong class="part-txt">112</strong></div>
+								<div id="divimg113" style="left:20%;top:73.3333%;" class="part-area divimg" no="113">
+									<strong class="part-txt">113</strong></div>
+								<div id="divimg114" style="left:30%;top:73.3333%;" class="part-area divimg" no="114">
+									<strong class="part-txt">114</strong></div>
+								<div id="divimg115" style="left:40%;top:73.3333%;" class="part-area divimg" no="115">
+									<strong class="part-txt">115</strong></div>
+								<div id="divimg116" style="left:50%;top:73.3333%;" class="part-area divimg" no="116">
+									<strong class="part-txt">116</strong></div>
+								<div id="divimg117" style="left:60%;top:73.3333%;" class="part-area divimg" no="117">
+									<strong class="part-txt">117</strong></div>
+								<div id="divimg118" style="left:70%;top:73.3333%;" class="part-area divimg" no="118">
+									<strong class="part-txt">118</strong></div>
+								<div id="divimg119" style="left:80%;top:73.3333%;" class="part-area divimg" no="119">
+									<strong class="part-txt">119</strong></div>
+								<div id="divimg120" style="left:90%;top:73.3333%;" class="part-area divimg" no="120">
+									<strong class="part-txt">120</strong></div>
+
+								<div id="divimg121" style="left:00%;top:80%;" class="part-area divimg" no="121"> <strong
+										class="part-txt">121</strong></div>
+								<div id="divimg122" style="left:10%;top:80%;" class="part-area divimg" no="122"> <strong
+										class="part-txt">122</strong></div>
+								<div id="divimg123" style="left:20%;top:80%;" class="part-area divimg" no="123"> <strong
+										class="part-txt">123</strong></div>
+								<div id="divimg124" style="left:30%;top:80%;" class="part-area divimg" no="124"> <strong
+										class="part-txt">124</strong></div>
+								<div id="divimg125" style="left:40%;top:80%;" class="part-area divimg" no="125"> <strong
+										class="part-txt">125</strong></div>
+								<div id="divimg126" style="left:50%;top:80%;" class="part-area divimg" no="126"> <strong
+										class="part-txt">126</strong></div>
+								<div id="divimg127" style="left:60%;top:80%;" class="part-area divimg" no="127"> <strong
+										class="part-txt">127</strong></div>
+								<div id="divimg128" style="left:70%;top:80%;" class="part-area divimg" no="128"> <strong
+										class="part-txt">128</strong></div>
+								<div id="divimg129" style="left:80%;top:80%;" class="part-area divimg" no="129"> <strong
+										class="part-txt">129</strong></div>
+								<div id="divimg130" style="left:90%;top:80%;" class="part-area divimg" no="130"> <strong
+										class="part-txt">130</strong></div>
+
+								<div id="divimg131" style="left:00%;top:86.66667%;" class="part-area divimg" no="131">
+									<strong class="part-txt">131</strong></div>
+								<div id="divimg132" style="left:10%;top:86.66667%;" class="part-area divimg" no="132">
+									<strong class="part-txt">132</strong></div>
+								<div id="divimg133" style="left:20%;top:86.66667%;" class="part-area divimg" no="133">
+									<strong class="part-txt">133</strong></div>
+								<div id="divimg134" style="left:30%;top:86.66667%;" class="part-area divimg" no="134">
+									<strong class="part-txt">134</strong></div>
+								<div id="divimg135" style="left:40%;top:86.66667%;" class="part-area divimg" no="135">
+									<strong class="part-txt">135</strong></div>
+								<div id="divimg136" style="left:50%;top:86.66667%;" class="part-area divimg" no="136">
+									<strong class="part-txt">136</strong></div>
+								<div id="divimg137" style="left:60%;top:86.66667%;" class="part-area divimg" no="137">
+									<strong class="part-txt">137</strong></div>
+								<div id="divimg138" style="left:70%;top:86.66667%;" class="part-area divimg" no="138">
+									<strong class="part-txt">138</strong></div>
+								<div id="divimg139" style="left:80%;top:86.66667%;" class="part-area divimg" no="139">
+									<strong class="part-txt">139</strong></div>
+								<div id="divimg140" style="left:90%;top:86.66667%;" class="part-area divimg" no="140">
+									<strong class="part-txt">140</strong></div>
+
+								<div id="divimg141" style="left:00%;top:93.333333%;" class="part-area divimg" no="141">
+									<strong class="part-txt">141</strong></div>
+								<div id="divimg142" style="left:10%;top:93.333333%;" class="part-area divimg" no="142">
+									<strong class="part-txt">142</strong></div>
+								<div id="divimg143" style="left:20%;top:93.333333%;" class="part-area divimg" no="143">
+									<strong class="part-txt">143</strong></div>
+								<div id="divimg144" style="left:30%;top:93.333333%;" class="part-area divimg" no="144">
+									<strong class="part-txt">144</strong></div>
+								<div id="divimg145" style="left:40%;top:93.333333%;" class="part-area divimg" no="145">
+									<strong class="part-txt">145</strong></div>
+								<div id="divimg146" style="left:50%;top:93.333333%;" class="part-area divimg" no="146">
+									<strong class="part-txt">146</strong></div>
+								<div id="divimg147" style="left:60%;top:93.333333%;" class="part-area divimg" no="147">
+									<strong class="part-txt">147</strong></div>
+								<div id="divimg148" style="left:70%;top:93.333333%;" class="part-area divimg" no="148">
+									<strong class="part-txt">148</strong></div>
+								<div id="divimg149" style="left:80%;top:93.333333%;" class="part-area divimg" no="149">
+									<strong class="part-txt">149</strong></div>
+								<div id="divimg150" style="left:90%;top:93.333333%;" class="part-area divimg" no="150">
+									<strong class="part-txt">150</strong></div>
+
+
+							</div>
+						</div>
+
+					</div> <!-- end col -->
+
+				</div><!-- end row -->
+
+
+
+				<!--divider-->
+				<div id="bidding"
+					class="divider divider-style-4 taller appear-animation animated bounceIn appear-animation-visible"
+					data-appear-animation="bounceIn" data-appear-animation-delay="300" style="animation-delay: 300ms;">
+					<i class="fas fa-chevron-down"></i>
+				</div>
+
+
+
+				<!--select img and price-->
+				<div class="row">
+
+					<!--left-select-img-->
+					<div class="col-md-6">
+
+						<div class="row">
+							<div class="col-6">
+
+								<!-- 중분할도 -->
+								<h5><i class="far fa-images me-2"></i><strong>NFT작품 소유권 중분류</strong></h5>
+
+								<div id="img-hotspot" class="mb-3 ms-0 ps-0">
+									<div class="image-hotspots"
+										style="/* background-image: url(/assets/images/croe/hoo150803.jpg); */ background-size: cover; background-position: center;">
+										<img src="http://artixc.com/assets/images/hooranky/150803/web/img150/hoo01.png"
+											id="divimg_img1" width="100%" class="img-fluid" border="3" />
+
+										<div id="divimg1-1" style="left:00%;top:0%" class="part-area-sub divimg"
+											no="1-1"> <strong class="part-txt">1-1</strong></div>
+										<div id="divimg1-2" style="left:50%;top:0%" class="part-area-sub divimg"
+											no="1-2"> <strong class="part-txt">1-2</strong></div>
+										<div id="divimg1-3" style="left:0%;top:20%" class="part-area-sub divimg"
+											no="1-3"> <strong class="part-txt">1-3</strong></div>
+										<div id="divimg1-4" style="left:50%;top:20%" class="part-area-sub divimg"
+											no="1-4"> <strong class="part-txt">1-4</strong></div>
+										<div id="divimg1-5" style="left:0%;top:40%" class="part-area-sub divimg"
+											no="1-5"> <strong class="part-txt">1-5</strong></div>
+										<div id="divimg1-6" style="left:50%;top:40%" class="part-area-sub divimg"
+											no="1-6"> <strong class="part-txt">1-6</strong></div>
+										<div id="divimg1-7" style="left:0%;top:60%" class="part-area-sub divimg"
+											no="1-7"> <strong class="part-txt">1-7</strong></div>
+										<div id="divimg1-8" style="left:50%;top:60%" class="part-area-sub divimg"
+											no="1-8"> <strong class="part-txt">1-8</strong></div>
+										<div id="divimg1-9" style="left:0%;top:80%" class="part-area-sub divimg"
+											no="1-9"> <strong class="part-txt">1-9</strong></div>
+										<div id="divimg1-10" style="left:50%;top:80%" class="part-area-sub divimg"
+											no="1-10"> <strong class="part-txt">1-10</strong></div>
+
+									</div>
+								</div>
+
+							</div>
+							<!--end col1-->
+
+
+							<div class="col-5">
+								<h5><strong class="text-danger"><i class="far fa-check-square me-2"></i>최종 선택된
+										NFT분할소유권</strong></h5>
+								<img id="sImage" src="http://artixc.com/assets/images/hooranky/150803/hs/h_01.png"
+									width="100%" height="" style="border: 5px solid red;">
+
+								<span class="mt-2 px-3 py-2 badge badge-danger badge-md text-7 text-center"
+									id="show_sel_num"> 001-01</span>
+								<!--end col2-->
+
+							</div>
+							<!--end-inner-row-->
+						</div>
+
+					</div>
+
+
+
+					<!--right-price-->
+					<div class="col-md-6">
+
+
+						<h5 class="text-color-dark mb-2 "><strong class="font-weight-extra-bold">
+								<i class="far fa-check-circle me-2"></i> NFT ART WORK of your choice</strong></h5>
+
+						<!-- 그림에서 클릭하거나, 셀렉트에서 번호를 선택할경우 번호 노출 23번일경우 -->
+						<DiV class="mt-3 font-weight-bold bg-color-dark-scale-1 text-center">
+							<h2 class="word-rotator letters scale text-light pt-2 pb-3">
+								<span class="font-weight-light text-2">You Select</span>
+								<span class="word-rotator-words font-weight-bold text-4">
+									<b class="is-visible font-weight-extra-bold text-warning" id="sel_box1">No.#</b>
+									<b class="text-primary" id="sel_box2">Special No.#</b>
+									<b class="text-danger" id="sel_box3">unique No.#</b>
+								</span>
+								<!-- <span class="font-weight-medium text-3">. Please Offer!</span> -->
+							</h2>
+
+						</DiV>
+
+
+						<!--price-->
+						<h5 class="text-color-dark mb-2 "><strong class="font-weight-extra-bold">
+								<i class="far fa-check-circle me-2"></i> Price / Payment</strong></h5>
+
+						<div class="bg-color-grey-scale-1 p-3 text-center mb-2 border-y-1">
+							<div class="mb-2 pt-3">
+								<span class="text-7 text-danger"> <strong>Ξ 2 ETH </strong>
+									<span class="text-1 ms-2 text-danger"></span>
+							</div>
+						</div>
+
+
+						<div class="text-2 font-weight-bold text-dark ">
+							<h6 class="mb-1 font-weight-extra-bold">MY Wallet Ballence </h6>
+							<div class="underline"></div>
+							<li><i class="far fa-user-circle me-1"></i>MetaMask 지갑을 설치하고, 활성화하세요: <badge
+									class="badge badge-primary badge-sm"> 0 ARTiX </badge>
+							</li>
+							<!--li><i class="fab fa-ethereum"></i> My ETH :  <badge class="badge badge-dark badge-sm">  25.00 ETH </badge>  </li-->
+
+						</div>
+
+
+						<hr class="mb-3">
+
+						<p class="text-2 text-danger font-weight-semi-bold line-h mb-3">
+							*디지털 NFT미술작품은 디지털 컨텐츠 상품 특성상, 구매후 반품,환불이 안됩니다. <br>
+							*Digital NFT Art Works cannot be returned or refunded after purchase.
+						</p>
+
+						<div class="mt-0 mb-2">
+
+							<button class="btn btn-outline-primary btn-xs" data-bs-toggle="modal"
+								data-bs-target="#HooTermsModal">
+								후랭키 NFT작품 판매 약관보기
+							</button>
+
+							<button class="btn btn-outline-primary btn-xs" data-bs-toggle="modal"
+								data-bs-target="#ArtiTermsModal">
+								ARTiX플랫폼 이용 약관보기
+							</button>
+
+						</div>
+
+						<div class="text-1 text-color-default font-weight-medium line-height-1">
+							<input id="agree1" type="checkbox"><span class="ms-2"> ARTiX는 중개플랫폼이며, NFT작품에 관련된 모든 책임은
+								판매자(창작자)와 구매자에게 있습니다.
+							</span>
+						</div>
+						<div class="text-1 text-color-default pb-3 font-weight-medium">
+							<input id="agree2" type="checkbox"><span class="ms-2"> 판매자인 후랭키 NFT작품의 [판매 및 거래약관]에
+								동의합니다.</span>
+						</div>
+
+						<hr class="mt-0 mb-3">
+
+
+						<div class="margin-auto text-4">
+							<button type="submit" class="btn btn-danger btn-modern text-uppercase  w-100" id="buyBtn">
+								BUY
+								NOW</button>
+
+						</div>
+
+						<input type="hidden" id="aname" name="name" value="Hoo150803_Summer">
+
+					</div>
+
+				</div>
+				<!--end row-->
+
+
+				<!--Modal_1: Arti terms Modal -->
+				<div class="modal fade" id="ArtiTermsModal" tabindex="-1" role="dialog"
+					aria-labelledby="ArtiTermsModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-scrollable">
+						<div class="modal-content">
+							<div class="modal-header bg-color-grey-scale-4">
+								<h4 class="modal-title" id="ArtiTermsModalLabel">Terms of ARTiX Platform</h4>
+								<button type="button" class="btn-close" data-bs-dismiss="modal"
+									aria-hidden="true">&times;</button>
+							</div>
+							<div class="modal-body">
+								<h5>아티X 중개플랫폼 이용약관</h5>
+								<hr>
+
+								<p>아티엑스(ARTiX)플랫폼는 통신판매 중개자로서 통신판매의 당사자가 아니며, 컨텐츠의 판매, 다운로드 및 환불의 의무와 책임은 각 컨텐츠
+									제공자(판매자)에게 있습니다.
+									위 내용에 대한 저작권 및 법적 책임은 컨텐츠 제공자 또는 판매자, 글쓴이에게 있으며 아티엑스플랫폼의 입장과 다를 수 있습니다.
+
+								<p>제1조 (목적)
+								<p>이 약관은 아티엑스플랫폼(이하 “ARTiX”)에서 운영하는 컨텐츠몰을 통하여 컨텐츠 제공자가 등록하여 판매하는 컨텐츠를 고객이 구입하여 사용하는 경우
+									ARTiX와 컨텐츠 제공자 그리고 고객 사이의 권리와 의무, 책임 등 기타 필요한 제반 사항을 규정함을 목적으로 합니다.
+
+								<p>제2조 (용어의 정의)
+
+								<p>①“디지털컨텐츠”(이하 “컨텐츠”)란 기존의 아날로그적 컨텐츠를 디지털화 한 것입니다.
+									<br>②“컨텐츠몰”이란 ARTiX에서 운영하는 컨텐츠를 판매하는 사이트를 말합니다.
+									<br>③“컨텐츠 제공자 (Contents Provider)”(이하 “판매자”)란 컨텐츠를 제작하여 ARTiX에 공급하는 회사 또는 개인을 말합니다.
+									<br>④“고객”이란 컨텐츠몰에서 컨텐츠를 구입하여 컨텐츠를 사용하는 자를 말합니다.
+									<br>⑤“설치”란 고객이 알려준 서버에 컨텐츠를 사용할 수 있도록 조치하는 것을 말합니다.
+									<br>⑥“저작권”이란 저작자가 자기의 저작물을 독점적으로 이용하거나 이를 다른 사람에게 이용하도록 허락할 수 있는 인격적 또는 재산적 권리를
+									말합니다.
+
+
+								<p>제3조 (약관의 효력 및 변경)
+
+								<p>①이 약관은 이용자가 동의한 시점부터 상호간에 적용됩니다.
+									<br>②이 약관은 ARTiX이 서비스하는 웹사이트(ARTiXC.COM 및 기타사이트)에서 온라인으로 공지함으로써 효력이 발생하며, 합리적인 사유가
+									발생할 경우 관련법령에 위배되지 않는 범위 안에서
+									개정될 수
+									있습니다. 개정된 약관은 온라인에서 공지함으로써 효력을 발휘하며, 이용자의 권리 또는 의무 등 중요한 규정의 개정은 시행일로부터 최소 1주일 전에
+									공지합니다.
+
+
+								<p>제4조 (서비스 이용방법)
+
+								<p>①서비스 이용 신청은 회사가 정한 절차에 따라 이루어집니다. 약관에 대한 동의는 고객이 서비스 이용신청 시 “동의함”을 선택함으로써 의사표시를 합니다.
+									<br>②고객은 구입하고자 하는 컨텐츠를 검색해서 결제를 완료한 후 다운로드하여 서비스를 이용할 수 있습니다.
+									<br>③고객은 구입한 컨텐츠의 사용목적, 사용방법, 사용기간 등 사용조건을 숙지하고 정해진 조건에 맞게 사용하여야 합니다.
+									<br>④컨텐츠는 결제를 완료한 후 정해진 기간 동안 정해진 횟수만큼 다운로드가 가능합니다.
+
+
+								<p>제5조 (교환 및 환불)
+
+								<p>①고객이 결제후 7일 이내에 다운로드를 받지 않은 상태에서는 환불이 가능합니다. 디지털콘텐츠 특성상 다운로드가 이루어진 이후에는 환불이 불가능합니다.
+									단, 다운로드한 컨텐츠 자체에 문제가 있는 경우
+									정상적인
+									컨텐츠로 교환해 드리며 교환이 불가능한 경우에만 환불이 가능합니다.
+									<br>②고객이 결제후 7일이 초과하면 다운로드와 사용에 상관없이 환불이 불가합니다.
+									<br>③고객의 부주의, 실수 등에 의한 경우 교환 또는 환불이 불가합니다. (예: 컴퓨터 오류에 의한 데이터 삭제, 데이터의 분실, 서버의 설정 등)
+
+
+								<p>제6조 (ARTiX의 의무)
+
+								<p>①ARTiX는 고객이 지속적이고 안정적인 서비스를 제공 받을 수 있도록 최선을 다합니다.
+									<br>②ARTiX는 효율적인 서비스의 제공을 위하여 고객이 제공한 개인정보를 이용할 수 있으며 고객의 개인정보는 관계법령 및 개인정보취급방침을
+									적용하여 보호합니다.
+									<br>③ARTiX 고객의 구매내역, 판매가격, 결제수단 등의 정보를 보관 관리하며 서비스 이용에 대한 일반적인 고객지원을 책임집니다.
+
+
+								<p>제7조 (판매자의 의무)
+
+								<p>①판매자는 제공하는 컨텐츠에 대한 고객의 문의 및 불만사항에 대해 게시판, 이메일, 전화 답변 등의 방법으로 실제 업무일 기준으로 최대 3일을 넘기지
+									않고 처리해야 합니다.
+									<br>②판매자는 판매하는 컨텐츠에 대해 컨텐츠의 보증기간 동안은 고객지원에 최선을 다하여야 합니다.
+									<br>③판매자는 신용카드 현금융통, 결제수단도용, 구매후기 조작, 대량 허위거래 등에 해당하는 부정 거래 행위를 할 수 없습니다.
+
+
+								<p>제8조 (고객의 의무)
+
+								<p>①고객은 저작권에 대한 내용을 숙지하여 저작권을 침해하는 행위를 하지 않아야 합니다.
+									<br>②고객은 자신이 구매한 컨텐츠를 별도로 저장할 수 있으며 고객의 실수로 인한 자료의 손상 또는 분실에 대해서는 ARTiX 또는 판매자가 책임을
+									지지 않습니다.
+									<br>③구매한 컨텐츠는 본인 또는 본인이 지정한 자에 한하여 1회만 사용할 수 있습니다.
+									<br>④고객은 구매한 컨텐츠를 원본 또는 추가, 수정, 삭제 등의 변형을 통해 특허 등록 또는 유사한 저작권을 획득할 수 없습니다.
+									<br>⑤고객은 구매한 컨텐츠를 음란물 및 불법 제품 등에 사용하거나 관계법령에 위배되는 행위를 할 수 없습니다.
+									<br>⑥고객은 신용카드 현금융통, 결제수단도용, 구매후기 조작, 대량 허위거래 등에 해당하는 부정 거래 행위를 할 수 없습니다.
+
+
+								<p>제9조 (보증의 한계)
+								<p>①ARTiX와 판매자는 컨텐츠의 내용이나 기능의 완벽성에 대해 보증하지 않습니다.
+									<br>②컨텐츠는 특수한 사용환경, 사용경험 및 능력에 따라 그 결과가 달라질 수 있습니다.
+									<br>③컨텐츠 자체의 결함으로 인해 고객에게 직간접적으로 발생하는 손실이 있을 수 있습니다. 이 경우에는 ARTiX 또는 판매자가 보상해 드립니다.
+									이때 보상해 드리는 금액은 컨텐츠를 구입할 당시의
+									실제
+									구입비용(포인트할인, 쿠폰할인을 제외한 금액)을 초과하지 않습니다.
+									<br>④컨텐츠에 대한 기본 보증기간은 1년입니다. 보증기간이 지나면 무상 고객지원이 되지 않습니다.
+
+
+								<p>제10조 (면책 조항)
+								<p>①ARTiX는 다음의 경우 배상 등의 책임이 없습니다.
+									<br>1.전시, 사변, 천재지변, 화재, 침수, 건물 붕괴 또는 이에 준하는 국가비상사태 등 불가항력적인 경우
+									<br>2.고객의 귀책사유에 해당하는 고의 또는 과실로 인한 경우
+									<br>3.전기통신사업법에 의한 회사 외 타 기간통신사업자가 제공하는 전기통신서비스 장애 및 설비부족으로 인한 경우
+									<br>4.전기통신서비스의 특성상 불가피한 사유로 서비스 제공이 불가능한 경우
+									<br>5.설비 보수, 교체, 정기점검, 공사 등 부득이한 사유로 서비스 중단을 미리 공지한 경우
+
+								<p>②고객이 ARTiX의 서비스 제공으로부터 기대되는 이익을 얻지 못하였거나 서비스로 부터 수반되는 잠재가치 및 서비스 자료에 대한 취사선택 또는 이용으로
+									발생하는 손해 등에 대해서는 책임이 없습니다.
+									<br>
+									③고객의 귀책사유로 고객의 아이디(ID)와 비밀번호가 유출되어 발생한 문제에 대한 책임은 고객에게 있으며 ARTiX는 아무런 책임이 없습니다.<br>
+									④고객이 고객의 전화번호, 이메일 등의 연락처정보와 은행계좌정보 등을 최신의 상태로 유지하지 않아 발생한 문제에 대한 책임은 고객에게 있으며 회사는
+									아무런 책임이 없습니다. (예: 서비스 내용 변경
+									고지,
+									서비스 이용료 환불 등) <br>
+									⑤ARTiX와 판매자가 무료로 제공하는 서비스의 이용과 관련해서 ARTiX와 판매자는 어떠한 지원도 하지 않으며 고객이 입은 어떠한 손해에 대해서도
+									책임이 없습니다. <br>
+									⑥고객의 서비스 이용과 관련하여 다음과 같은 경우 ARTiX는 책임을 지지 않습니다. <br>
+
+									1.고객은 고객의 저작권 위반, 보관 부실, 불법복제, 소스변형 등과 관련하여 발생하는 모든 종류의 손해에 대해 ARTiX는 책임을 지지
+									않습니다.<br>
+									2.컴퓨터 오류 등 고객의 귀책사유로 인한 서비스 이용의 장애 또는 손해가 발생한 경우에 대하여 ARTiX는 책임을 지지 않습니다. <br>
+									3.컨텐츠의 상세정보에 기재된 최적화된 환경 외의 프로그램이나 버전에서 사용하여 발생한 문제에 대하여 ARTiX는 책임을 지지 않습니다. <br>
+									4.판매자가 서비스와 관련하여 자체적으로 게재한 정보, 사실, 자료 등의 정확성과 신뢰도에 대하여 ARTiX는 책임을 지지 않습니다. <br>
+								<p>⑦고객과 판매자 상호간에 서비스를 매개로 발생한 분쟁에 대해 ARTiX는 개입할 의무가 없으며 이로 인한 손해를 배상할 책임도 없습니다.<br>
+
+
+								<p>제11조 (분쟁의 조정 및 관할)
+
+								<p>①본 계약에 정하지 아니한 사항이나 해석상 내용이 불분명한 사항에 대하여는 관계 법령 및 상관례에 따라 ARTiX와 판매자 그리고 고객이 서로 협의하여
+									상호 호혜적 차원에서 결정합니다.<br>
+
+									②본 계약내용에 대한 이의 발생 시 상호 협의하여 해결하되, 분쟁이 발생할 경우 소송은 ARTiX의 본사 소재지를 관할하는 법원에 제기합니다.<br>
+
+								<p>본 약관은 2021년 8월 1일부터 시행합니다.
+
+							</div>
+							<div class="modal-footer bg-color-grey-scale-3">
+								<button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<!-- Modal_2 : hooranky terms modal -->
+				<div class="modal fade" id="HooTermsModal" tabindex="-1" role="dialog"
+					aria-labelledby="HooTermsModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-scrollable">
+						<div class="modal-content">
+							<div class="modal-header bg-color-grey-scale-4">
+								<h4 class="modal-title" id="HooTermsModalLabel">디지털콘텐츠(NFT 미술작품) 구매 및 공급 약관</h4>
+								<button type="button" class="btn-close" data-bs-dismiss="modal"
+									aria-hidden="true">&times;</button>
+							</div>
+							<div class="modal-body">
+								<h5>지털콘텐츠(NFT 미술작품) 구매 및 공급 약관</h5>
+								<hr>
+
+								<p>본 약관은 온라인 마켓플랫폼을 통해 NFT 미술작품 콘텐츠를 구매하고자 하는 구매자(이하 "갑"이라 한다)와 NFT 미술작품 콘텐츠 저작권자 및
+									제공자(이하 "을"이라 한다)에게 NFT 미술작품콘텐츠 제공과 관련하여 상호간의 업무와 절차를 규정한 것이다.
+
+
+								<p>제1조 (목적)
+								<p>본 약관은 "을"이 "갑"에게 NFT 미술작품 콘텐츠를 판매하고, "갑"은 그 대가로서 "을"에게 판매대금을 제공하고 구입함에 있어서 당사자들의
+									권리의무를 정해 분쟁발생을 예방하고 상호간의 이익을 증진하는데 그 목적이 있다.
+
+								<p>제2조 (용어의 정의)
+								<p>본 계약서에서 사용되는 용어의 정의는 다음과 같고, 정의되지 않은 용어는 관련법령 및 상관습에 따라 해석한다.
+
+								<p>1. "NFT 미술작품콘텐츠(이하 "콘텐츠"라 한다)"라 함은 「정보통신망이용촉진 및 정보보호 등에 관한 법률」제2조 제1항 제1호의 규정에 의한
+									정보통신망에서 사용되는 부호·문자·음성·음향·이미지 또는 영상 등으로 표현된 자료 또는 정보의 일종으로서, 특히 NFT(Non Fungible
+									Token) 미술작품 이라함은 제작자(작가)가 만든 고유의 작품을 디지털화등의 방법으로 작품화한 후 작품마다 각각 유일한 고유값을 생성하여 블록체인에
+									저장하여, 대체 불가능하게 위변조 불가상태로 저장하여 소유권을 인정하는 작품유형을 말한다.
+
+									<br>2. “컨텐츠 제공자 (Contents Provider)”(이하 “판매자”)란 컨텐츠를 제작하여 구매자에게 공급하는 회사 또는 개인을 말합니다.
+									<br>3. "고객”이란 컨텐츠몰에서 컨텐츠를 구입하여 컨텐츠를 사용하는 자를 말합니다.
+									<br>4. “컨텐츠 공급”이란 고객이 알려준 전자지갑(월렛) 주소에 컨텐츠를 사용할 수 있도록 전송하는 것을 말합니다.
+									<br>5.“저작권”이란 저작자가 자기의 저작물을 독점적으로 이용하거나 이를 다른 사람에게 이용하도록 허락할 수 있는 인격적 또는 재산적 권리를
+									말합니다.
+
+
+								<p>제3조 ("갑"의 의무)
+								<p>1. "갑"은 본 계약에 의하여 "을"로부터 NFT 미술작품 콘텐츠를 구매하고, 그 대가로서 "을"에게 판매대금을 지급하여야 한다.
+									<br>2. "갑"은 구매한 작품이 디지털상품이라는 것을 인지하고, 구매 후 자신의 전자지갑에 구매한 NFT작품을 전송받은 이후에는 청약,철회가
+									불가능하다.
+									<br>3. "갑"의 사유로 인하여 제3자와의 사이에 본 계약과 관련한 분쟁이 발생한 경우, "갑"의 비용 및 책임으로 이를 해결하여야 한다.
+									<br>4. "갑"은 NFT 미술작품 콘텐츠의 구매자 및 소유자이지만, 저작권은 "을"에게 있으므로 변형 등 필요시 저작권자의 사전 동의를 얻어야
+									한다.
+
+								<p>제4조 ("을"의 의무)
+								<p>1. "을"은 "갑"이 구매한 NFT 미술작품 콘텐츠를 상호 협의된 방식으로 공급하여야 한다. 이때, "을"이 "갑"에게 제공하여야 할 콘텐츠 목록은
+									부속서에 별첨한다.
+									<br>2. "을"은 NFT 미술작품 콘텐츠의 블록체인 등록업무를 완료하여야 하며, "갑"이 이를 이더스캔 등에서 확인할수 있어야 한다.
+									<br>3."을"은 "갑"이 지정된 주소로 대금입금을 완료하면, "갑"의 전자지갑 주소로 NFT 미술작품 소유권 고유값을 전송하여 거래관계를 최종
+									종료한다.
+
+								<p>제5조 (배송 및 거래완료)
+								<p>1. NFT작품의 전송은 입금이 확인된 날의 다음 날을 기산일로 하여 5일이내 완료합니다. 단 천재지변 등 불가항력의 사유가 발생하면 그 해당 기간은
+									소요 기간에서 제외한다.
+									<br>2. NFT작품의 전송이 완료되고 구매확정이 이루어진 이후에는 디지털 NFT작품의 특성상 반품과 환불이 불가능하다.
+
+								<p>제6조 (서비스 제공 등)
+								<p>① "을"이 본 계약상 제공하는 콘텐츠의 구성 및 수량은 상호 협의 하에 정하되 "을"은 제공이 가능한 최대한의 콘텐츠를 제공하여야 한다. 콘텐츠의 구성
+									및 수량은 상호 협의 하에 추후 변경 및 추가될
+									수 있다.
+									<br>② "을"은 콘텐츠의 원활한 제공이 현저히 곤란한 경우 "갑"에게 콘텐츠 서비스 개선을 요구할 수 있으며, "갑"은 "을"과 협의 하에 이를
+									최대한 수용하도록 노력하여야 한다.
+
+
+								<p>제6조 (비밀유지)
+								<p>① "갑"과 "을"은 상대방으로부터 업무상 제공받은 자료와 부수적으로 알게 된 상대방의 모든 정보를 사전 동의 없이 제3자에게 유출하거나 본 계약의 목적
+									이외의 어떠한 목적으로도 사용할 수 없다.
+									<br>② 제1항의 비밀유지 의무는 계약 종료 후에도 유효하다.
+
+
+								<p>제7조 (불가항력)
+								<p>"갑" 또는 "을"은 천재지변이나 국가비상사태, 폭동, 전쟁 등 불가항력의 사유로 상대방에게 발생시킨 의무불이행 및 손해에 대하여는 책임을 지지
+									아니한다.
+
+
+								<p>제8조 (분쟁의 조정 및 관할)
+								<p>①본 계약에 정하지 아니한 사항이나 해석상 내용이 불분명한 사항에 대하여는 관계 법령 및 상관례에 따라 상호 협의하여 진행한다.
+									<br>②본 계약내용에 대한 이의 발생 시 상호 협의하여 해결하되, 소송의 경우 판매자의 소재지 관할법원에 제기하여 해결한다.
+
+
+								<p>본 약관은 2021년 8월 1일부터 시행한다.
+
+								<h5>NFT 미술작품콘텐츠 제공자 </h5>
+								후랭키 배 / (주)메타박스
+
+
+							</div>
+							<div class="modal-footer bg-color-grey-scale-3">
+								<button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+
+				<!-- in Detail-->
+				<section>
+					<div class="mt-5 mb-0  border-b-1">
+						<h4 class="font-weight-black">NFT Art Work Details</h4>
+					</div>
+
+
+					<h1 class="mb-0 mt-2 font-weight-bold text-7"><strong>Hooranky(hoo150803)</strong> |
+						<small>Summer_green Swamp </small></h1>
+
+
+					<div class="pb-0 clearfix d-flex align-items-center">
+						<ul class="list list-unstyled text-2">
+							<li class="mb-0"><i class="far fa-user-circle me-1"></i>Owned by: <a href="#"> <strong
+										class="text-primary">608BAB034BF33
+									</strong> </a> </li>
+
+							<li class="mb-0"><i class="far fa-user-circle me-1"></i>Created by: <a href=""
+									id="hoo_link"> <strong class="text-primary">Hooranky.Bae
+									</strong> </a> </li>
+
+
+							<li class="mb-0"><i class="far fa-eye me-1"></i><b id="viewsCnt">151</b> views</li>
+						</ul>
+					</div>
+
+
+
+					<!--nft info-->
+					<div class="mt-4 mb-4">
+						<h2 class="text-color-dark font-weight-extra-bold text-3-5 mb-1"><i
+								class="fas fa-link me-2"></i><strong>NFT
+								CHAIN INFO</strong></h2>
+
+						<div class="text-2">
+							<li class="border-b-1 border-t-1 py-1"> <b>Token ID :</b> <strong
+									class="text-color-primary text-3"><a href="#" id="token_id">1</a></strong></li>
+							<li class="border-b-1 py-1 bg-color-grey-scale-1"> <b>Contract Address :</b> <strong
+									class="w-100 hash-tag text-3"><a
+										href="https://etherscan.io/address/0x316fcdfb3eb100ea2d0bbd52eaf07c8b0db1efd7"
+										target="blank">0x316fcdfb3eb100ea2d0bbd52eaf07c8b0db1efd7</a></strong>
+								<!--img class="ms-3 bg-success border-1r p-2" src="http://artixc.com/assets/images/knca_grey_so.png" width="50px;"><b
+					class="text-1 text-danger me-3"> <a class="text-danger ms-2" href="https://nftkor.org"  target="_blank"> KNCA Verified >>  </a> </b-->
+							</li>
+							<li class="border-b-1  py-1"> <b>Blockchain :</b> <strong class="text-color-primary text-3">
+									Ethereum 721</strong></li>
+
+							<!-- divided edition  -->
+							<li class="border-b-1  py-1"><b>your NFT/Total NFT Edition:</b> <strong
+									class="text-color-primary text-3 ms-2">
+									<badge class="badge badge-danger badge-sm rounded text-4" id="show_divnum">1-1
+									</badge> /
+									<badge class="badge badge-light border-1 badge-md text-dark font-weight-extra-bold text-4">
+										1,500</badge>
+								</strong></li>
+							<!---->
+							<li class="border-b-1  py-1"><b>Ownership Transferred:</b> <strong
+									class="text-color-primary ms-2">
+									YES</strong> </li>
+							<li class="border-b-1  py-1"><b>Downloadable Digital NFT file :</b> <strong
+									class="text-color-primary">YES</strong></li>
+							<li class="border-b-1  py-1"><b>Resellable :</b> <strong
+									class="text-color-primary">YES</strong></li>
+
+						</div>
+					</div>
+
+
+
+					<div class="toggle toggle-simple" data-plugin-toggle data-plugin-options="{ 'isAccordion': true }">
+						<section class="toggle active">
+							<a class="toggle-title text-3-5 font-weight-extra-bold">About Works</a>
+							<div class="toggle-content">
+
+								<div class="row">
+									<div class="col-md-2">
+										<img class="float-start m-3 ms-0" width="150" height=""
+											src="http://artixc.com/assets/images/croe/hoo150803.jpg" alt="">
+									</div>
+
+									<div class="col-md-8">
+
+										<h5 class="mt-2 pt-2 mb-1 font-weight-extra-bold"> 작품명 : <span
+												class="text-4 text-success">Hoo150803_Summer_That Green Swamp </span>
+										</h5>
+										<h5 class="mt-0 font-weight-extra-bold">소제목: <span
+												class="text-5 text-success">여름_그 초록의 늪 </span></h5>
+
+										<h5 class="font-weight-extra-bold mt-4 mb-0"><i
+												class="far fa-image text-3 me-2"></i>작품 스케치 </h5>
+										<p class="mt-3">
+											<strong class="text-dark"> 언뜻 보기에 작품속 깊이 잠겨있는 빨간색은 뜨거운 여름철 대 자연의 이글거리는 열기를
+												나타내며, 지구촌을 뒤덮고 있는 재앙들을 나타내고 있으나.. 그것은 결국 인간의 내면적 욕심과 적개심, 화난 심리, 세속의
+												짜증스러움을 나타내고 있다고 할수 있다. </strong>
+										</p>
+										<p>
+											<strong class="text-dark">
+												이렇게 수없이 겹겹이 쌓인 외면과 내면의 열기와 화(禍)들을 ...
+												작가는 초록의 산,나무,강 등의 자연으로 과감히 덮어 버림으로써,, 세상의 더위와 열기, 온갖 화(禍)를 잠재워 버리고, 내면의
+												적개심을 정화시켜버림으로써, 외면에서는 자연의 시원함, 청량감을, 내면에서는 평온과 평화, 안정감을 이끌어 내는 카타르시스의
+												진수를 보여 주고있다. </strong>
+										</p>
+
+										<p>
+
+											그의 작품들은 순간의 떠오르는 이미지를 조화로우면서도 감각적인 찰나의 순간을 잡기위해 리듬감 있는 몰딩과 역동감 넘치는 컬러로 그려졌다.
+
+											그의 작품은 추상표현주의에 속하며, 비유적인 기묘한 모양과 색채의 극적인 대비는 작품을 감상하는 사람에게 강력하고 독특한 인상을 준다.
+											그는 디지털을 미디어로한 추상 표현주의 작가로써
+											그의 작품 속에는 보는 이의 상상 속 형태들이 즐비하다.</p>
+										<p>
+
+											예술의 본질을 인식하고 경지에 이른 그의 작품을 보고 있노라면 자신도 모르게 신비의 세계에 빠져들게 된다. 관객은 끝없는 상상력을 펼치게
+											되고,
+											결국 작가의 그림에 몰입하여 작품과 하나가 되어 신비로운 세계를 접하게 된다. </p>
+										<p>
+											그는 종종 말한다. "그림은 형식에 얽매이지 않고 어린 아이처럼 순수한 사고 속에서 그려내는 것이 가장 훌륭한 것"이라고. 작가는
+											소탈하고 형식에 구애 받지 않는다.<br>
+											「후랭키」는 디지털 미디어 아트 분야의 세계적 거장의 반열에 있다.
+											그의 미술에 대한 열정은 부모로부터 물려받은 선천적인 감각으로 부터이다.</p>
+										<p>
+											「후랭키」는 서양화를 전공하고 치앙마이, 북경, 로마, 뉴욕, 도쿄, 후쿠시마켄의 이와끼, 등에서 작품 활동을 하였으며, 시대를 꿰뚫는
+											직관력과 예지력을 지닌 예술가다.<br>
+											그는 지식의 근본이 「회화」임을 깨달은 아티스트로써 화가로만 머물고 싶지 않다. 세상에 그림을 그리는 예술가가 되어야 한다고 생각한다.
+											<br>
+
+										</p>
+									</div>
+
+								</div>
+
+							</div>
+						</section>
+
+						<section class="toggle active">
+							<a class="toggle-title text-3-5">About Creator</a>
+							<div class="toggle-content">
+								<div class="row">
+									<div class="col-md-2">
+										<img class="float-start m-3 ms-0" width="100" height=""
+											src="http://artixc.com/assets/images/croe/hooranky.png" alt="">
+									</div>
+
+									<div class="col-md-8">
+
+										<h5 class="mt-4 font-weight-extra-bold">ㅇ작가소개 </h5>
+										<h4>후랭키(Hooranky Bae) _세계적 디지털미디어작가</h4>
+
+
+
+										<li>후랭키(본명, 배한성)은 세계적인 디지털 미디어 아티스트입니다.
+										<li>후랭키(Hooranky는 작가명으로서 디지털을 미디어로 추상표현주의 작가입니다.</li>
+
+										<li>2019년 8월 디지털 이미지를 시리즈로 제작한 5개의 작품이 5,000만불(590억)에 계약되었습니다.</li>
+										<li>2019. 12월, 한국의 글로벌 롯데백화점에서 마케팅 전략으로 "백화점 속 미술관"이란 명목의 스팟경매를 진행하여 30분만에 후랭키의
+											작품이 20억원에 낙찰 되었습니다.
+											이 같은 후랭키 효과는, 국내의 다른 백화점들이 미술품 취급을 벤치마킹하게 되었습니다.</li>
+
+
+										<li>한국수채화의 독보적인 존재인 부친 “배동신 화가”의 작품 제작의 현장에서 조수로 일했으며, 이후 서울에서 로마, 동유럽의 도시들과,
+											뉴욕, 이와키, 도쿄, 베이징, 상하이, 방콕,
+											치앙마이 등을 오가며 작품활동을 했습니다. 2009년 부터 2013년, 한국에서는 처음으로 세계적인 온라인 마켓플레이스에 미술품을
+											전시하여 한국의 수준 높은 예술성을 소개함으로써
+											세계 도처의 고객에게 접근할 수 있는 길을 열었습니다.</li>
+
+										<li>후랭키는 디지털 미디어 아티스트로써 수 많은 미디어를 접하고 그들간에 이루어진 상호협력의 자유로운 조화를 회화로 표현합니다.</li>
+										<li>온라인 글로벌 아트 마케팅 믹스를 기반으로 자신의 아트워크의 범위를 작품이 판매되는 시점까지로 정했고, 자신의 작품을 온라인
+											마켓플레이스를 통해 세계시장에 소개하며, 세계적 디지털
+											미디어 작가로 명성을 날리고 있습니다. </li>
+
+
+										<h5 class="mt-4 font-weight-extra-bold">ㅇ이력소개</h5>
+
+										<p>후랭키는 대한민국의 대표적 디지털 미디어 아티스트이다.<br>
+
+											후랭키(Hooranky는 작가명이다. 1958년생) 대한민국 화가, 디지털을 미디어로한 추상표현주의 작가. 2019년 8월 디지털
+											이미지를 시리즈로 제작한 5개의 작품이 오천만불에
+											계약되었다. 같은 해 12월, 한국의 글로벌 백화점에서 마케팅 전략으로 "백화점 속 미술관"이란 명목의 스팟경매를 진행하여 30분만에
+											후랭키의 작품이 거액에 낙찰되었다. 이 같은
+											후랭키 효과는, 국내의 다른 백화점들이 미술품 취급을 벤치마킹하게 되었다.<br><br>
+
+
+											<strong>유년시절</strong><br>
+
+											후랭키(Hooranky)는1958년 전라남도 광주광역시에서 출생했다. 부모는 화가인 아버지 배동신과 피아노를 전공한 어머니 김년규이다.
+											후랭키는 어릴적에 피아노 치는 법을 배웠고,
+											음악과 미술 속에서 자랐다. 1976년 가족이 모두 서울로 이주했다.
+											<br><br>
+
+											<strong>학력</strong><br>
+
+											서석초등학교, 북성중학교, 금호고등학교, 추계예술대학교 미술대학 서양화과를 졸업했다.<br><br>
+
+											<strong>활동 및 기사</strong><br>
+
+											1984년 대학을 졸업한 후 김언경, 소원섭, 김치중, 심우채, 박상연, 이찬용, 이학민, 석낙우, 이해전과 함께 표상전에 가입하여
+											활동했다. 1986년 부터는 아트 마케팅 업무를
+											하며, 부친의 작품 제작의 현장에서 조수로 일 했다. 1996년 부터는 서울에서 로마, 동유럽의 도시들과, 뉴욕, 이와키, 도쿄,
+											베이징, 상하이, 방콕, 치앙마이 등을 오가며
+											작품활동을 했고, 2007년 부터 서울에 정착하여, 아트 마케팅과 인터렉티브 영상 미디어 회사를 운영하였다.<br> 2009년 부터
+											2013년, 한국에서는 처음으로 세계적인 온라인
+											마켓플레이스에 미술품을 전시하여 한국의 수준 높은 예술성을 소개함으로써 세계 도처의 주간적인 기호 고객에 접근할 수있는 길을 열었다.
+											후랭키는 온라인 글로벌 아트 마케팅 믹스을
+											기반으로 작품이 판매되는 시점까지를 자신의 아트워크의 범위로 정했고, 자신의 작품을 온라인 마켓플레이스를 통해 세계시장에 소개했다.
+											그리고 2019년 "배동신 화백의 10주기 추모
+											전시"를 세계적인 온라인 마켓플레이스를 통해 공식적인 전시를 열어 언론의 이목을 받았다. 후랭키의 크리에이티브 아트워크의 철학은
+											작품제작을 위한 개념이 마케팅이란 퍼포먼스를 거쳐
+											판매 까지 실현시키는 것이다. 후랭키는 디지털 미디어 아티스트로써 수 많은 미디어를 접하고 그들간에 이루어진 상호협력의 자유로운 조화를
+											회화라고 표현한다.<br>
+
+											2020년 10월 14일 전태일 열사의 50주기를 한 달여 앞두고 '전태일 추모의 달'이 선포됐다. 세계적인 디지털 미디어 아트 작가
+											후랭키Hooranky는 14일 서울 종로구
+											전태일 다리에서 열린 선포식에서 전태일50주기행사위원회와 함께 전태일 열사를 모티브로 한 디지털 아트 작품을 공개했다. 후랭키 작가는
+											연합뉴스와의 인터뷰에서 "큰 감동이다. 그는
+											인간의 한계를 뛰어넘은 순교자다"라고 말했다.
+										</p>
+
+										<h5 class="mt-4 font-weight-extra-bold">ㅇ주요언론 보도</h5>
+										<div class="text-2">01.후랭키 NFT작품과 아티프로젝트로 국내외 미술계 주목 </div>
+										<a href="https://www.wowtv.co.kr/NewsCenter/News/Read?articleId=A202107230165&amp;t=NN"
+											target="_blank">
+											https://www.wowtv.co.kr/NewsCenter/News/Read?articleId=A202107230165&amp;t=NN</a>
+
+
+										<div class="text-2">02.후랭키 작품, 미국 NFT 경매서 505만 달러에 낙찰 </div>
+										<a href="https://www.ajunews.com/view/20210723095535588" target="_blank">
+											https://www.ajunews.com/view/20210723095535588</a>
+
+										<div class="text-2">03.월드비전, 글로벌 미디어아트 거장 ‘후랭키 화백’ 홍보대사 위촉 </div>
+										<a href="https://www.christiantoday.co.kr/news/341446" target="_blank">
+											https://www.christiantoday.co.kr/news/341446</a>
+
+
+
+									</div>
+
+								</div>
+
+							</div>
+						</section>
+
+
+						<section class="toggle active">
+							<a class="toggle-title text-3-5">Properties</a>
+							<div class="toggle-content">
+
+								<div class="row">
+									<div class="col-md-2">
+
+									</div>
+
+									<div class="col-md-8">
+
+										<strong style="font-size:20px">hoo150803</strong><br>
+										<strong>Artist</strong> : Hooranky Bae<br>
+										<strong>Artwork</strong> : hoo150803<br>
+										<strong>Year</strong> : 2015<br>
+										<strong>Dimensions</strong> : 37.25 x 78.32cm<br>
+										<strong>Frame Size</strong> : No Frame<br>
+										<strong>Frame Material</strong> : No Frame<br>
+										<strong>Product Certificate</strong> : Yes<br>
+										<strong>Damaged Part</strong> : N/A<br>
+										<strong>Style</strong> : Abstract expressionism<br>
+										<strong>Type</strong> : NFT ART WORK, Digital &amp; Acrylic on digital paper<br>
+										<br>
+
+									</div>
+
+								</div>
+
+
+
+							</div>
+						</section>
+					</div>
+
+				</section>
+
+
+				<!-- detail policy price chart -->
+				<section class="mt-5 mb-4">
+
+					<div class="tabs tabs-simple tabs-simple-full-width-line tabs-primary mb-2">
+
+						<!--tab-menu-->
+						<ul class="nav nav-tabs justify-content-start">
+
+							<li class="nav-item w-50 px-0 pe-5">
+								<a class="nav-link active text-3-5 px-0" href="#popularColors1"
+									data-bs-toggle="tab">Royalty Policy</a>
+							</li>
+							<li class="nav-item active px-0 w-50">
+								<a class="nav-link text-3-5" href="#recentColors1" data-bs-toggle="tab">Price Chart</a>
+							</li>
+						</ul>
+
+
+						<!--notice-->
+						<div class="tab-content text-dark ">
+							<div id="popularColors1" class="tab-pane active bg-color-light-scale-1">
+
+								<div class="row">
+									<div class="col-md-2 pt-4">
+										<img class="float-start m-3 ms-0" width="150" height=""
+											src="http://artixc.com/assets/images/croe/replica_min.jpg" alt="">
+									</div>
+
+									<div class="col-md-10 pt-4">
+
+										<div class="underline"></div>
+										<dt class="text-4-5 font-weight-extra-bold">Delivery</dt>
+
+										<p class="line-h">At the time of purchase, the item will be shipped with the
+											transfer of NFT
+											ownership and the actual item.
+										</p>
+										<li><strong>구매하신 NFT 작품의 소유권은 암호화되어 구매자의 개인 전자지갑으로 소유권이 이전됩니다.</strong></li>
+										<li><strong>본 NFT작품은 구매자가 언제든지 다운로드할수 있도록 고해상도 디지털컨텐츠도 함께 제공됩니다.</strong></li>
+										<li><strong class="text-danger">해당 NFT 아이템은 10 NFT Piece이상 분할소유시 작가의 친필서명이 포함된
+												실물
+												레플리카(replica) 작품이 함께 배송 됩니다.</strong> </li>
+										<br>
+
+										<div class="underline"></div>
+										<div><strong class="font-weight-extra-bold mt-5 text-4">작품 문의 및 실물 레플리카(Replica)
+												수령장소 | 메타박스</strong></div>
+										<li class="line-h font-weight-bold">(주)메타박스 | 서울특별시 강남구 봉은사로 430 (삼성동)</li>
+										<li> 430, Bongeunsa-ro, Gangnam-gu, Seoul, Republic of Korea </li>
+
+
+										<li class="text-primary text-2 line-h mt-3"> 아티엑스(Arti-X)는 NFT작품 플랫폼 중개자이며,
+											NFT작품에 대한 판매,구입 문의는 (주)메타박스로 문의하시기 바랍니다. </li>
+										<li class="text-primary text-2">Arti-X is a platform broker for NFT works, and
+											for inquiries about sales or purchase of NFT works, please contact Metabox.
+										</li>
+
+										<p></p>
+										<div class="underline"></div>
+										<dt class="text-4 font-weight-extra-bold">*후랭키 특별전 with NFT Gallery MetaBox</dt>
+										<img width="150" height="" class="mt-2 mb-4"
+											src="http://artixc.com/assets/images/croe/metabox_logo.png" alt="">
+									</div>
+								</div>
+
+
+							</div>
+
+
+							<!--chart-->
+							<div id="recentColors1" class="tab-pane bg-color-light-scale-1 mb-5">
+
+
+								<select class="form-control-sm text-2 " id="price-history-choose"
+									aria-label="Default select">
+									<option value="-1">All Time</option>
+									<option value="7">Last 7 Days</option>
+									<option value="30">Last 30 Days</option>
+								</select>
+
+								<div class="historyGraphWrap" id="priceHistoryChartSkin">
+									<div class="historyGraphWrap">
+										<img src="http://artixc.com/assets/images/no-chart-data.svg">
+										<span>No trading data yet</span>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</section>
+
+
+
+
+				<!--table history List-->
+				<section class="mt-2">
+					<div class="mt-4">
+						<h4><i class="fas fa-link me-3"></i>Trading History</h4>
+					</div>
+					<form name="fs" id="fs" method="post" action="">
+						<input type="hidden" name="search" value="yes">
+						<div class="text-default py-3 border-t-1">
+							<div class="form-check form-check-inline ">
+								<input class="form-check-input" id="inlineCheckbox1" type="checkbox" name="ctype[0]"
+									value="list" checked />
+								<label class="form-check-label" for="inlineCheckbox1">List</label>
+							</div>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" id="inlineCheckbox2" type="checkbox" name="ctype[1]"
+									value="offer" checked />
+								<label class="form-check-label" for="inlineCheckbox2">Offer</label>
+							</div>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" id="inlineCheckbox3" type="checkbox" name="ctype[2]"
+									value="bid" checked />
+								<label class="form-check-label" for="inlineCheckbox3">Bid</label>
+							</div>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" id="inlineCheckbox4" type="checkbox" name="ctype[3]"
+									value="sale" checked />
+								<label class="form-check-label" for="inlineCheckbox4">Sale</label>
+							</div>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" id="inlineCheckbox5" type="checkbox" name="ctype[4]"
+									value="transfer" checked />
+								<label class="form-check-label" for="inlineCheckbox5">Transfer</label>
+							</div>
+							<button class="btn btn-outline-secondary me-1 mb-1" type="submit"><i
+									class="fas fa-search"></i></button>
+						</div>
+					</form>
+					<style>
+						.table td {
+							vertical-align: middle;
+						}
+					</style>
+
+
+					<a name="list1"></a>
+					<div class="table-responsive">
+						<table class="table table-striped text-dark font-weight-light text-2 text-center">
+							<thead class="border-y-1 bg-color-grey-scale-4">
+								<tr>
+									<th class="">Event</th>
+									<th class="">Date</th>
+									<th class="">TX(Hash)->Name</th>
+									<th class="">Title->NFT_Art_Work</th>
+									<th class="">Edition No.</th>
+									<th class="">Price</th>
+									<th class="">From</th>
+									<th class="">To</th>
+									<th class="">State</th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>
+					<div class="b-t-2 p-t-10">
+
+						<ul class="pagination pagination-sm">
+							<li class="page-item previous"><a href="http://artixc.com/detail_hooranky/page1=1&page_num=10#list1"
+									class="page-link">&lt&lt</a></li>
+							<li class="page-item" id="dynamic-table_previous"><a href="#n" class="page-link">&lt</a>
+							</li>
+							<li class="page-item active"><a href="#n" class="page-link">1</a></li>
+							<li class="page-item" id="dynamic-table_next"><a href="#n" class="page-link">&gt</a></li>
+							<li class="page-item next"><a href="http://artixc.com/detail_hooranky/page1=1&page_num=10#list1"
+									class="page-link">&gt&gt</a></li>
+						</ul>
+					</div>
+				</section>
+				<script>
+					$(document).ready(function () {
+						$('.cancelBtn').on('click', function () {
+							$.ajax({
+								type: 'post',
+								url: 'http://artixc.com/proc/ajax/point_cancel.html',
+								data: { "mode": "exe", "rowid": $(this).attr("rowid") },
+								dataType: "json",
+								success: function (data) {
+									if (data.code == "0") {
+										alert(data.msg);
+										location.reload();
+									} else {
+										alert(data.msg);
+									}
+								}
+							});
+						});
+					});
+				</script>
+
+
+
+			</div>
+
+		</div>
+
+
+
+		<script>
+			$(document).ready(function () {
+				let asset_path = "http://artixc.com/assets/";
+				let sel_no = 1;
+				let selNumStr = "001-01";
+				let save_sel_no = 1;
+
+
+				var selectNumer = function (no) {
+					/*
+					$('#selno').html(no);
+					$('.word-rotator-words b:eq(6) i:eq(9)').html(no);	
+					$('.word-rotator-words b:eq(7) i:eq(9)').html(no);	
+					$('.word-rotator-words b:eq(8) i:eq(8)').html(no);	
+					$('#selectno').val(no);
+					*/
+
+					var ino = no - 1;
+					var w = 100;
+					var h = 134;
+					var hno = Math.floor(ino / 10);
+					var wno = ino % 10;
+					var left = w * wno;
+					var top = h * hno;
+
+
+					$('#sImage').css('left', '-' + left + 'px');
+					$('#sImage').css('top', '-' + top + 'px');
+
+					$.ajax({
+						type: 'post',
+						url: '/proc/ajax/arti_price.html',
+						data: { "mode": "exe", "selectno": $("#selectno").val(), "aname": $("#aname").val() },
+						dataType: "json",
+						success: function (data) {
+							if (data.code == "0") {
+								$('#min1').html(data.min);
+								$('#min2').html(data.min);
+								$('#min1_eth').html(data.min_eth);
+								$('#min2_eth').html(data.min_eth);
+							} else {
+								Swal.fire({ text: '가격 설정을 확인하세요.', icon: 'error', confirmButtonText: 'OK' });
+							}
+						}
+					});
+
+				}
+
+				$('#selectno').on('change', function () {
+					var selectno = $('#selectno').val();
+					$('#divimg' + selectno).trigger('click');
+				});
+
+				$(':radio[name="currency"]').on('change', function () {
+					$('#currency_m').html($(this).val());
+				});
+
+				function numberPad(n, width) {
+					n = n + '';
+					return n.length >= width ? n : new Array(width - n.length + 1).join('0') + n;
+				}
+
+				function imgMatrix(n, m) {
+					let mat = [0, 1, 2, 21, 22, 41, 42, 61, 62, 81, 82];
+					let p = 0;
+					let p1 = 0;
+					let p2 = 0;
+					if (n <= 10) {
+						p = (n - 1) * 2 + mat[m];
+					} else {
+						p1 = Math.floor((n - 1) / 10);
+						p2 = n - p1 * 10;
+						p = p1 * 100 + (p2 - 1) * 2 + mat[m];
+					}
+					if (p < 10) p = "0" + p;
+					return p;
+				}
+
+
+				$('.divimg').on('click', function () {
+					let dno_list = ["1-1", "1-2", "1-3", "1-4", "1-5", "1-6", "1-7", "1-8", "1-9", "1-10"];
+					let dno_to_name = ["_01", "_02", "_03", "_04", "_05", "_06", "_07", "_08", "_09", "_10"];
+					let dno_to_num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+					var dno = $(this).attr('no');
+
+					if (dno_list.indexOf(dno) != -1) {
+						for (i = 1; i <= 10; i++) {
+							$('#divimg1-' + i).css('background-color', 'rgba(31, 29, 29, 0.7)');
+						}
+						$('#divimg' + dno).css('background-color', 'rgba(255, 255, 255,0)');
+						let fileName = numberPad(sel_no, 3) + dno_to_name[dno_list.indexOf(dno)];
+						$("#sImage").attr("src", "http://artixc.com/assets/images/hooranky/150803/hs/h_" + imgMatrix(sel_no, dno_to_num[dno_list.indexOf(dno)]) + ".png");
+						//$("#sImage").attr("src", asset_path + "images/hooranky/150803/web/img1500/"+fileName+".png");
+
+						selNumStr = fileName.replace("_", "-");
+						$('#show_sel_num').html(selNumStr);
+						$('#show_divnum').html(selNumStr);
+
+						selNumBox(selNumStr);
+
+						save_sel_no = ((sel_no - 1) * 10) + dno_to_num[dno_list.indexOf(dno)];
+						$('#token_id').html(save_sel_no);
+
+						return;
+					}
+
+					for (i = 1; i <= 150; i++) {
+						$('#divimg' + i).css('background-color', 'rgba(31, 29, 29, 0.7)');
+					}
+					$('#divimg' + dno).css('background-color', 'rgba(255, 255, 255,0)');
+					selectNumer(dno);
+
+
+					for (i = 1; i <= 10; i++) {
+						$('#divimg1-' + i).html('<strong class="part-txt">' + dno + '-' + i + '</strong>');
+					}
+
+
+					sel_no = dno;
+					let i_no = dno;
+					if (i_no < 10) {
+						i_no = "0" + i_no;
+					}
+					$("#divimg_img1").attr("src", "http://artixc.com/assets/images/hooranky/150803/web/img150/hoo" + i_no + ".png");
+					//$("#sImage").attr("src", asset_path + "images/hooranky/150803/web/img1500/"+numberPad(sel_no,3)+"_01.png");
+					$("#sImage").attr("src", "http://artixc.com/assets/images/hooranky/150803/hs/h_" + imgMatrix(sel_no, 1) + ".png");
+
+					selNumStr = numberPad(dno, 3) + "-01";
+					$('#show_sel_num').html(selNumStr);
+					$('#show_divnum').html(selNumStr);
+
+					selNumBox(selNumStr);
+					childDivimgReset();
+
+					save_sel_no = ((sel_no - 1) * 10) + 1;
+					$('#token_id').html(save_sel_no);
+				});
+
+				function selNumBox(num) {
+					$('.word-rotator-words b:eq(6) i:eq(3)').html(num);
+					$('.word-rotator-words b:eq(7) i:eq(11)').html(num);
+					$('.word-rotator-words b:eq(8) i:eq(11)').html(num);
+				}
+
+				let accounts = [];
+				$('#connectBtn').on('click', async () => {
+					try {
+						const account = await getAccount();
+						console.log(account);
+						$('#offerAccount').html(account.result);
+					} catch (e) {
+						$('#offerAccount').html('The failure of wallet connect.');
+					}
+
+					// if($('#offerAccount').html()=='') {
+					//     $('#offerAccount').html('The failure of wallet connect.');
+					// }
+				});
+
+				$('#offerBtn').on('click', function () {
+					var wallet = $('#offerAccount').html();
+					//var currency=$(':radio[name="currency"]').val();
+					var currency = $('#currency_m').html();
+
+					//alert(currency);
+
+					if (currency == 'ETH') {
+						if (wallet == 'The failure of wallet connect.' || wallet == '') {
+							Swal.fire({ text: 'Please connect wallet....', icon: 'error', confirmButtonText: 'OK' });
+						} else {
+							var ethv = parseFloat($('#amount').val()) * 1000000000000000000;
+							var ethhex = ethv.toString(16);
+							//ethhex='0xDE0B6B3A7640000';
+							ethereum.request({
+								method: 'eth_sendTransaction',
+								params: [{
+									from: accounts[0],
+									to: '0xE693AbF21dc413DfE1C1Ee4fFb773406Ae352469',
+									value: ethhex,
+									gasPrice: '0x09184e72a000',
+									gas: '0x3000',
+								},],
+
+							}).then((txHash) => successOffer(txHash, wallet)).catch((error) => failureOffer(error));
+						}
+					} else {
+						txHash = 'arti';
+						wallet = 'arti_address';
+						successOffer(txHash, wallet);
+					}
+
+				});
+
+				$("#buyBtn").on('click', async () => {
+					if (true) {
+						Swal.fire({ text: '현재 프로모션 기간으로 정식판매일은 공지를 확인해주세요.', icon: 'error', confirmButtonText: 'OK' });
+					} else {
+						const account = await getAccount();
+						console.log(account);
+						txHash = 'arti nft';
+						wallet = 'arti_address';
+						successOffer(txHash, wallet);
+					}
+				});
+
+				function successOffer(txHash, wallet) {
+					$('#txhash').val(txHash);
+					$('#wallet').val(wallet);
+					$.ajax({
+						type: 'post',
+						url: '/proc/ajax/arti_offer_hooranky.html',
+						data: { "mode": "exe", "wallet": wallet, "txhash": txHash, "selectno": save_sel_no, "aname": $("#aname").val(), "amount": 1, "currency": "ARTI", "agree1": $("#agree1").prop('checked'), "agree2": $("#agree2").prop('checked') },
+						dataType: "json",
+						success: function (data) {
+							if (data.code == "0") {
+								Swal.fire({ text: data.msg, icon: 'success', confirmButtonText: 'OK' });
+								location.reload();
+							} else {
+								Swal.fire({ text: data.msg, icon: 'error', confirmButtonText: 'OK' });
+							}
+						}
+					});
+				}
+
+				function failureOffer(error) {
+					Swal.fire({ text: 'Failure of transaction.', icon: 'error', confirmButtonText: 'OK' });
+					console.log(error);
+				}
+
+				// async function getAccount() {
+				//     accounts = await ethereum.request({method: 'eth_requestAccounts'});
+				//     const account = accounts[0];
+				//     // $('#offerAccount').html(account);
+				// };
+
+				function getAccount() {
+					return new Promise(async (resolve, reject) => {
+						if (typeof window.ethereum === 'undefined') {
+							reject({ error: true, msg: 'window.ethereum undefined' });
+						}
+						accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+						console.log(accounts);
+						const account = accounts[0];
+						resolve({ error: false, result: account });
+					});
+				};
+
+
+				$('#hoo_link').on('click', function (e) {
+					e.preventDefault();
+					window.open("https://hooranky.art");
+				});
+
+				var oheight = parseInt($('#original').height()) + 2;
+				$('#category').css('height', oheight + 'px');
+				$('#divimg1').trigger('click');
+
+				function childDivimgReset() {
+					for (i = 1; i <= 10; i++) {
+						$('#divimg1-' + i).css('background-color', 'rgba(31, 29, 29, 0.7)');
+					}
+					$('#divimg1-1').css('background-color', 'rgba(255, 255, 255,0)');
+				}
+
+				childDivimgReset();
+				let timer = setInterval(() => { selNumBox("001-01"); clearInterval(timer); }, 1500);
+
+
+			});
+		</script>
+
+
+	</div>
+	<!--footer-->
+	<footer id="footer" class="footer-texts-more-lighten">
+
+		<div class="container">
+			<div class="row mt-4 pt-5 ">
+				<div class="col-md-6 col-lg-2 mb-5 mb-lg-0">
+					<a href="index.html"> <img src="http://artixc.com/assets/images/artix-w.png" width="100px"> </a>
+
+				</div>
+
+				<div class="col-md-6 col-lg-4 mb-3 mb-lg-0">
+					<h5 class="text-4 text-color-light mb-3">CONTACT INFO</h5>
+					<ul class="list list-unstyled">
+						<li class="pb-1 mb-2">
+							<span class="d-block font-weight-normal line-height-1 text-color-light">ADDRESS</span>
+							Room 1405, 14/F, Austin Tower, 22-26 Austin Avenue, TST, Kowloon, Hong Kong
+						</li>
+
+						<li class="pb-1 mb-2">
+							<span class="d-block font-weight-normal line-height-1 text-color-light">EMAIL</span>
+							support@artixc.com</a>
+						</li>
+
+					</ul>
+
+				</div>
+
+
+				<div class="col-md-6 col-lg-3 mb-3 mb-lg-0">
+					<h5 class="text-4 text-color-light mb-3">CUSTOMER SERVICE</h5>
+					<ul class="list list-unstyled mb-0 text-2">
+						<li class="mb-0"><a href="#">How to Register</a></li>
+						<li class="mb-0"><a href="#">How to Create my Collection</a></li>
+						<li class="mb-0"><a href="#">How to Create NFT</a></li>
+						<li></li>
+						<li class="mb-0 text-1"><a href="#">Privacy Policy</a></li>
+						<li class="mb-0 text-1"><a href="#">Terms of Service</a></li>
+					</ul>
+				</div>
+
+				<div class="col-md-6 col-lg-3">
+					<h5 class="text-4 text-color-light mb-3">SUBSCRIBE NEWSLETTER</h5>
+					<p class="mb-2 line-height-2">Get all the latest information on events, sales and offers. Sign up
+						for
+						newsletter:</p>
+					<div class="alert alert-success d-none" id="newsletterSuccess">
+						<strong>Success!</strong> You've been added to our email list.
+					</div>
+					<div class="alert alert-danger d-none" id="newsletterError"></div>
+					<form id="newsletterForm" class="form-style-5 opacity-10"
+						action="http://artixc.com/assets/php/newsletter-subscribe.php" method="POST">
+						<div class="row">
+							<div class="form-group col">
+								<input class="form-control" placeholder="Email Address" name="newsletterEmail"
+									id="newsletterEmail" type="text" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group col">
+								<button class="btn btn-outline-secondary btn-rounded btn-px-2 btn-py-1"
+									type="submit">Subscribe</button>
+							</div>
+						</div>
+					</form>
+				</div>
+
+			</div>
+
+		</div>
+
+		<!--social -->
+		<div class="container">
+			<div class="footer-copyright footer-copyright-style-2 mt-0 pt-2 pb-5">
+				<div class="row align-items-center justify-content-md-between">
+					<div class="col-12 col-md-auto text-md-start mb-2 mb-md-0">
+						<p class="mb-0 text-light">Copyright © 2021. ARTiX, ARTi Project, All Rights Reserved</p>
+					</div>
+					<div class="col-12 col-md-auto">
+						<div class="justify-content-md-end">
+							<ul class="social-icons social-icons-clean-with-border social-icons-telegram">
+								<li class="social-icons-telegram">
+									<a href="https://t.me/arti_pr" class="no-footer-css" target="_blank"
+										title="telegram"><i class="fab fa-telegram-plane"></i></a>
+								</li>
+								<li class="social-icons-twitter mx-2">
+									<a href="twitter.com/artiproject21" class="no-footer-css" target="_blank"
+										title="Twitter"><i class="fab fa-twitter"></i></a>
+								</li>
+								<li class="social-icons-facebook">
+									<a href="facebook.com/artiproject21" class="no-footer-css" target="_blank"
+										title="Facebook"><i class="fab fa-facebook-f"></i></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- end social -->
+
+
+	</footer>
+
+	<!-- Vendor -->
+
+	<script src="vendor/jquery.appear/jquery.appear.min.js"></script>
+	<script src="vendor/jquery.easing/jquery.easing.min.js"></script>
+	<script src="vendor/jquery.cookie/jquery.cookie.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="vendor/jquery.validation/jquery.validate.min.js"></script>
+	<script src="vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
+	<!-- 	<script src="vendor/jquery.gmap/jquery.gmap.min.js"></script> -->
+	<script src="vendor/lazysizes/lazysizes.min.js"></script>
+	<script src="vendor/isotope/jquery.isotope.min.js"></script>
+	<script src="vendor/owl.carousel/owl.carousel.min.js"></script>
+	<script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+	<script src="vendor/vide/jquery.vide.min.js"></script>
+	<script src="vendor/vivus/vivus.min.js"></script>
+	<script src="vendor/bootstrap-star-rating/js/star-rating.min.js"></script>
+	<script src="vendor/bootstrap-star-rating/themes/krajee-fas/theme.min.js"></script>
+	<script src="vendor/jquery.countdown/jquery.countdown.min.js"></script>
+	<script src="vendor/elevatezoom/jquery.elevatezoom.min.js"></script>
+	<script src="vendor/sweetalert2/sweetalert2.all.min.js"></script>
+
+	<!-- Theme Base, Components and Settings -->
+	<script src="js/theme.js"></script>
+
+	<!-- Current Page Vendor and Views -->
+	<script src="js/views/view.shop.js"></script>
+
+	<!-- Theme Initialization Files -->
+	<script src="js/theme.init.js"></script>
+
+	<!-- Examples -->
+	<script src="js/examples/examples.gallery.js"></script>
+
+	<!-- Theme Custom -->
+	<!-- <script src="js/custom.js"></script> -->
+
+</body>
+
+</html>
